@@ -18,6 +18,7 @@ const ItemProject = (blog: BlogMetadata) => {
         >
             <div className="aspect-video object-cover w-full relative">
                 <Image
+                unoptimized //remove to optimize
                     className="aspect-video object-cover w-full"
                     alt={frontMatter.title}
                     src={frontMatter.thumbnail_url}

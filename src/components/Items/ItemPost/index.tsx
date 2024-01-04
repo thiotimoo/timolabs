@@ -11,6 +11,7 @@ const ItemPost = (blog: BlogMetadata) => {
         >
             {frontMatter.thumbnail_url && (
                 <Image
+                unoptimized //remove to optimize
                     className=" aspect-video object-cover w-full md:w-64 rounded-xl "
                     alt={frontMatter.title}
                     src={frontMatter.thumbnail_url}

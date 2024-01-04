@@ -18,6 +18,7 @@ const Article = () => {
                 
                 <div className="bg-white rounded-2xl overflow-clip border-fore dark:border-fore-dark border-4">
                     <Image
+                    unoptimized //remove to optimize
                     className="w-full"
                         src="/home_banner.png"
                         width={517}

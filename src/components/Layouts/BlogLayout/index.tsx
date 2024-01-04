@@ -12,6 +12,7 @@ const BlogLayout: React.FC<IBlogLayoutProps> = ({
         <article className="flex flex-col gap-6 p-6">
             {frontMatter.thumbnail_url && (
                 <Image
+                unoptimized //remove to optimize
                     className="aspect-video rounded-xl w-full"
                     src={frontMatter.thumbnail_url}
                     alt={frontMatter.title}
