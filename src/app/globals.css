@@ -3,25 +3,70 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        color-scheme: dark;
+        --foreground-rgb: 255, 255, 255;
+        --background-rgb: 10,10,10;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-rgb));
+    overflow-y: scroll;
+}
+
+.font-space {
+    font-family: var(--font-space);
+}
+
+.font-pixel {
+    font-family: var(--font-pixel);
+}
+
+.bg-gradient-intro {
+    background-color: rgb(147, 197, 253);
+    background-image: radial-gradient(
+            at 30% 17%,
+            rgb(236, 72, 153) 0,
+            transparent 70%
+        ),
+        radial-gradient(at 80% 6%, rgb(249, 115, 22) 0, transparent 40%),
+        radial-gradient(at 3% 60%, rgb(207, 250, 254) 0, transparent 60%),
+        radial-gradient(at 45% 49%, rgb(159, 18, 57) 0, transparent 100%),
+        radial-gradient(at 17% 13%, rgb(241, 245, 249) 0, transparent 9%),
+        radial-gradient(at 16% 59%, rgb(136, 19, 55) 0, transparent 89%);
+}
+
+.text-adaptive {
+    @apply text-fore dark:text-fore-dark 
+}
+
+.text-adaptive-invert {
+    @apply text-back dark:text-back-dark 
+}
+
+.bg-adaptive {
+    @apply bg-back dark:bg-back-dark 
+}
+
+.text-primary {
+    @apply text-yellow-950 dark:text-yellow-200
+}
+
+.text-link {
+    @apply text-green-500 dark:text-green-400 hover:bg-green-500 hover:dark:bg-green-400 hover:text-black rounded-sm underline
+}
+
+.divide-adaptive {
+    @apply divide-fore dark:divide-fore-dark divide-opacity-10 dark:divide-opacity-10
+}
+
+.border-adaptive {
+    @apply border-2 border-fore dark:border-fore-dark border-opacity-10 dark:border-opacity-10
 }
