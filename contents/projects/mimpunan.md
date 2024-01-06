@@ -2,7 +2,7 @@
 title: 'Mimpunan'
 description: 'Game edukasi berdasarkan materi Matematika Himpunan Kelas 7'
 date: '2023-02-01T05:00:00+07:00'
-thumbnail_url: '/projects/mimpunan.png'
+thumbnail_url: '/projects/mimpunan.webp'
 pinned: true
 project_type: 'game'
 ---
