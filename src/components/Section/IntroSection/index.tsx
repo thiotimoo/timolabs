@@ -19,7 +19,7 @@ const Introduction = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-intro w-full min-h-[576px] h-screen flex items-center justify-center relative"
+            className="bg-gradient-intro w-full min-h-[576px] h-svh flex items-center justify-center relative"
         >
             <div className="mt-16 max-w-screen-xl min-h-[576px] w-full h-full flex flex-col gap-2 justify-center items-start p-6 pb-16">
                 <p className="text-lg text-white font-normal flex items-center text-center px-2">
