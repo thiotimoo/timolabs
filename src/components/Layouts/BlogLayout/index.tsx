@@ -20,7 +20,7 @@ const BlogLayout: React.FC<IBlogLayoutProps> = ({
             {frontMatter.thumbnail_url && (
                 <Image
                     unoptimized //remove to optimize
-                    className="aspect-video rounded-xl w-full"
+                    className="aspect-video rounded-xl w-full object-cover"
                     src={frontMatter.thumbnail_url}
                     alt={frontMatter.title}
                     width={1280}

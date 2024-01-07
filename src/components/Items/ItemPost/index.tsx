@@ -1,3 +1,4 @@
+import { formatDateLong } from "@/lib/utils";
 import { BlogMetadata } from "@/types/blogs";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,15 +22,15 @@ const ItemPost = (blog: BlogMetadata) => {
             )}
             <div className="flex-1 flex flex-col gap-4 items-start justify-between w-full h-full px-2 py-4">
                 <div className="flex flex-col items-start gap-1">
-                    <h3 className="bg-fore dark:bg-fore-dark text-back-dark dark:text-back-dark px-2 rounded-full font-semibold tracking-wider text-sm">
-                        Category
+                    <h3 className="bg-fore dark:bg-fore-dark text-back dark:text-back-dark px-2 rounded-full font-semibold tracking-wider text-sm">
+                        {frontMatter.category}
                     </h3>
                     <h3 className="text-2xl font-bold">{frontMatter.title}</h3>
                 </div>
 
                 <div>
                     <h3 className="text-base text-blue-400">
-                        {frontMatter.date}
+                        {formatDateLong(frontMatter.date)}
                     </h3>
                 </div>
             </div>
