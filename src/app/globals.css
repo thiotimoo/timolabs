@@ -35,6 +35,14 @@ body {
     @apply bg-fore dark:bg-fore-dark;
 }
 
+.fill-adaptive {
+    @apply fill-fore dark:fill-fore-dark;
+}
+
+.fill-adaptive-invert {
+    @apply fill-back dark:fill-back-dark;
+}
+
 .text-adaptive {
     @apply text-fore dark:text-fore-dark;
 }

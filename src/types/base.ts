@@ -10,6 +10,12 @@ export interface IBaseProps {
     className?: string;
 }
 
+export interface IBaseLinkProps {
+    className?: string;
+    children: React.ReactNode;
+    href: string | UrlObject;
+}
+
 export interface IHeaderSection {
     text: string;
     href?: string | UrlObject;

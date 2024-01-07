@@ -13,7 +13,7 @@ const ItemProject = (blog: BlogMetadata) => {
     const { frontMatter, slug, blogType } = blog;
     return (
         <Link
-            className="border-2 border-fore dark:border-fore-dark border-opacity-10 dark:border-opacity-10 rounded-lg hover:shadow-xl bg-surface-adaptive active:bg-neutral-500 transition-all flex flex-col items-center hover:dark:shadow-neutral-700 hover:ring-fore hover:dark:ring-fore-dark hover:ring-2 overflow-clip hover:-translate-y-1"
+            className="border-2 border-fore dark:border-fore-dark border-opacity-30 dark:border-opacity-10 rounded-lg hover:shadow-xl bg-surface-adaptive active:bg-neutral-500 transition-all flex flex-col items-center hover:dark:shadow-neutral-700 hover:shadow-neutral-500 hover:ring-fore hover:dark:ring-fore-dark hover:ring-2 overflow-clip hover:-translate-y-1"
             href={`/${blogType}/${slug}`}
         >
             <div className="aspect-video object-cover w-full relative">
