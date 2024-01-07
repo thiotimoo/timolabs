@@ -15,7 +15,7 @@ const BlogLayout: React.FC<IBlogLayoutProps> = ({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
-            className="flex flex-col gap-6 p-6"
+            className="flex flex-col gap-6 p-6 items-center"
         >
             {frontMatter.thumbnail_url && (
                 <Image
@@ -27,7 +27,7 @@ const BlogLayout: React.FC<IBlogLayoutProps> = ({
                     height={720}
                 />
             )}
-            <header>
+            <header className="w-full p-2">
                 <time
                     className="text-lg text-primary"
                     dateTime={formatDateShort(frontMatter.date)}

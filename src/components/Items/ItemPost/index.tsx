@@ -26,9 +26,6 @@ const ItemPost = (blog: BlogMetadata) => {
                         {frontMatter.category}
                     </h3>
                     <h3 className="text-2xl font-bold">{frontMatter.title}</h3>
-                </div>
-
-                <div>
                     <h3 className="text-base text-blue-400">
                         {formatDateLong(frontMatter.date)}
                     </h3>

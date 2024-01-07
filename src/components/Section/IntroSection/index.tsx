@@ -22,19 +22,19 @@ const Introduction = () => {
             className="bg-gradient-intro w-full min-h-[576px] h-svh flex items-center justify-center relative"
         >
             <div className="mt-16 max-w-screen-xl min-h-[576px] w-full h-full flex flex-col gap-2 justify-center items-start p-6 pb-16">
-                <p className="text-lg text-white font-normal flex items-center text-center px-2">
+                <p className="text-lg text-white font-normal px-2">
                     Hello! I am
                 </p>
-                <h3 className="text-2xl text-white font-semibold flex items-center text-center px-2">
+                <h3 className="text-2xl text-white font-semibold px-2">
                     Vincent Timothy Kurniawan
                 </h3>
-                <h3 className="xl:text-8xl md:text-7xl text-6xl text-white font-semibold flex items-center gap-2 text-center px-2">
+                <h3 className="xl:text-8xl md:text-7xl text-6xl text-white font-semibold px-2">
                     Full-stack
                 </h3>
-                <h3 className="xl:text-8xl md:text-7xl text-6xl text-white font-semibold flex items-center gap-2 text-center px-2">
+                <h3 className="xl:text-8xl md:text-7xl text-6xl text-white font-semibold flex px-2">
                     Webdev.
                 </h3>
-                <p className="text-lg text-white px-2 text-center font-normal">
+                <p className="text-lg text-white px-2 font-normal">
                     and, i am from Karawang, Indonesia.
                 </p>
                 <div className="flex flex-row gap-4 py-2">
@@ -53,7 +53,7 @@ const Introduction = () => {
                 </div>
                 <Link
                     className="bg-surface dark:bg-surface-dark text-adaptive rounded-lg px-4 py-2 text-lg font-semibold hover:ring-2 hover:ring-fore hover:dark:ring-fore-dark   border-2 border-fore dark:border-fore-dark border-opacity-30 dark:border-opacity-10 transition-all"
-                    href="/github"
+                    href="https://discord.gg/9hzGZCdg9y"
                 >
                     Contact Me
                 </Link>
