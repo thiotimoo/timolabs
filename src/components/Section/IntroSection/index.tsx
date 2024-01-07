@@ -14,7 +14,7 @@ const Introduction = () => {
             viewport={{ once: true }} className="bg-gradient-intro w-full h-screen grid place-items-center min-h-96">
             <div className="mt-16 max-w-screen-xl min-h-96 w-full h-full flex flex-col gap-2 justify-center items-start p-6 pb-16">
                 <p className="text-lg text-white font-normal flex items-center text-center px-2">
-                    Hello! I'm
+                    Hello! I am
                 </p>
                 <h3 className="text-2xl text-white font-semibold flex items-center text-center px-2">
                     Vincent Timothy Kurniawan
@@ -26,7 +26,7 @@ const Introduction = () => {
                     Webdev.
                 </h3>
                 <p className="text-lg text-white px-2 text-center font-normal">
-                    and, i'm from Karawang, Indonesia.
+                    and, i am from Karawang, Indonesia.
                 </p>
                 <div className="flex flex-row gap-4 py-2">
                     <InstagramLogo weight="fill" size={32}/>
