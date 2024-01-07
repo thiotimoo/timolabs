@@ -6,6 +6,10 @@ export interface IContainerProps {
     children: React.ReactNode;
 }
 
+export interface IBaseProps {
+    className?: string;
+}
+
 export interface IHeaderSection {
     text: string;
     href?: string | UrlObject;

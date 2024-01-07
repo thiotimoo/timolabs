@@ -66,7 +66,7 @@ const TechStackSection = () => {
                 />
                 <ItemTechStack
                     src="/tech-stacks/gamemaker-icon.svg"
-                    name="GameMaker Language"
+                    name="GML"
                     invert
                 />
             </div>

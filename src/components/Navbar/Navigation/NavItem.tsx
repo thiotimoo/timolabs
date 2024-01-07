@@ -17,9 +17,9 @@ const NavItem: React.FC<ItemProps> = ({ text, href }) => {
             : "bg-transparent";
 
     return (
-        <li className=" w-full h-full items-center justify-center flex">
+        <li className="w-full h-full items-center justify-center flex">
             <Link
-                className={`text-base lowercase h-full px-3 py-1  active:transition-none hover:ring-2 hover:ring-fore hover:dark:ring-fore-dark active:bg-fore active:dark:bg-fore-dark active:text-back active:dark:text-back-dark rounded-full transition-all font-space font-bold ${bgActive}`}
+                className={`text-sm uppercase px-4 py-1 hover:bg-opacity-20 hover:dark:bg-opacity-20 hover:bg-fore hover:dark:bg-fore-dark active:bg-fore active:dark:bg-fore-dark active:text-fore hover:text-fore active:dark:text-fore-dark hover:dark:text-fore-dark rounded-md transition-all font-semibold tracking-wider w-full md:w-auto text-center ${bgActive}`}
                 href={href}
             >
                 {text}

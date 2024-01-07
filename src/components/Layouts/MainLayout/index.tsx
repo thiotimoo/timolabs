@@ -3,7 +3,7 @@ import React from 'react'
 
 const MainLayout: React.FC<IContainerProps> = ({children, className}) => {
   return (
-    <main className={`flex max-w-screen-md flex-col w-full ${className}`}>{children}</main>
+    <main className={`flex max-w-screen-md mt-16 flex-col w-full ${className}`}>{children}</main>
   )
 }
 
