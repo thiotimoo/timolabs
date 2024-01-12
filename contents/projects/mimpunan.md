@@ -11,8 +11,8 @@ Proyek ini merupakan tugas ujian praktek matematika kami yang pertama kali diber
 Setelah mengetahui manfaat mempelajari matematika khususnya materi himpunan, kelompok kami melihat bahwa masih banyak siswa/siswi yang masih merasa kesulitan pada saat mempelajari matematika khususnya materi himpunan. Dengan adanya video game dari kami diharapkan siswa/siswi (khususnya kelas 7) dapat tertarik untuk dapat mempelajari matematika ke tingkatan yang selanjutnya.
 
 # Link Downloads
-- [Windows (.zip)](https://github.com/thiotimoo/mimpunan)
-- [Android (.apk)](https://github.com/thiotimoo/mimpunan)
+- [Windows (.zip)](https://github.com/thiotimoo/mimpunan/releases/download/v1.5.0/Mimpunan-1.5-Windows.zip)
+- [Android (.apk)](https://github.com/thiotimoo/mimpunan/releases/download/v1.5.0/Mimpunan-1.5-Android.apk)
 - [Android (Play Store)](https://play.google.com/store/apps/details?id=com.keidowisu.mimpunan)
 - [Source Code (github)](https://github.com/thiotimoo/mimpunan)
 
