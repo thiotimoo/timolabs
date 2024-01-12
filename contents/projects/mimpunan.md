@@ -10,11 +10,11 @@ Proyek ini merupakan tugas ujian praktek matematika kami yang pertama kali diber
 
 Setelah mengetahui manfaat mempelajari matematika khususnya materi himpunan, kelompok kami melihat bahwa masih banyak siswa/siswi yang masih merasa kesulitan pada saat mempelajari matematika khususnya materi himpunan. Dengan adanya video game dari kami diharapkan siswa/siswi (khususnya kelas 7) dapat tertarik untuk dapat mempelajari matematika ke tingkatan yang selanjutnya.
 
-# Link Download
-[Windows (.zip)](https://github.com/thiotimoo/mimpunan)
-[Android (.apk)](https://github.com/thiotimoo/mimpunan)
-[Android (Play Store)](https://play.google.com/store/apps/details?id=com.keidowisu.mimpunan)
-[Source Code (github)](https://github.com/thiotimoo/mimpunan)
+# Link Downloads
+- [Windows (.zip)](https://github.com/thiotimoo/mimpunan)
+- [Android (.apk)](https://github.com/thiotimoo/mimpunan)
+- [Android (Play Store)](https://play.google.com/store/apps/details?id=com.keidowisu.mimpunan)
+- [Source Code (github)](https://github.com/thiotimoo/mimpunan)
 
 # Bagaimana cara bermainnya?
 Video game yang kelompok kami buat, adalah sebuah game dengan konsep Himpunan dengan cara kerja dimana siswa/siswi harus memasukan angka angka ke dalam diagram venn sesuai dengan keterangan yang diberikan.
