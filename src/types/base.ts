@@ -17,7 +17,7 @@ export interface IBaseLinkProps {
 }
 
 export interface IHeaderSection {
-    text: string;
+    children: React.ReactNode;
     href?: string | UrlObject;
 }
 

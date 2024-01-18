@@ -2,8 +2,8 @@ import Article from "@/components/Article";
 import Section from "@/components/Section/BaseSection";
 import AboutSection from "@/components/Section/AboutSection";
 import Introduction from "@/components/Section/IntroSection";
-import PostList from "@/components/Lists/ListPost";
-import ProjectList from "@/components/Lists/ListProject";
+import PostList from "@/components/Lists/PostList";
+import ProjectList from "@/components/Lists/ProjectList";
 import Image from "next/image";
 import TechStackSection from "@/components/Section/TechStack";
 

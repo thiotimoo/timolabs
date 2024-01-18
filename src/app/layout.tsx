@@ -6,7 +6,7 @@ import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Providers from "./providers";
+import Providers from "@/components/Providers";
 
 const gabaritoFont = Gabarito({
     subsets: ["latin"],
@@ -38,13 +38,7 @@ export default function RootLayout({
             <body
                 className={`${gabaritoFont.className} ${pixelFont.variable} ${spaceFont.variable} flex flex-col min-h-screen items-center`}
             >
-                <Navbar className="fixed z-50 top-0" />
-                <Providers>
-                    <main className="flex-grow w-full flex flex-col items-center">
-                        {children}
-                    </main>
-                    <Footer />
-                </Providers>
+                {children}
             </body>
         </html>
     );

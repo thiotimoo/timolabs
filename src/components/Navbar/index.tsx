@@ -26,7 +26,7 @@ const Navbar: React.FC<Props> = ({ className }) => {
             <div
                 className={`w-full max-w-screen-lg h-16 px-4 flex md:flex-row gap-4 justify-between items-center`}
             >
-                <Logo />
+                <Logo className="h-full"/>
                 <div className="md:block hidden">
                     <Navigation />
                 </div>

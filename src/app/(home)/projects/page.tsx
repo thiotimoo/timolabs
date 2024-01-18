@@ -1,11 +1,11 @@
 import MainLayout from "@/components/Layouts/MainLayout";
-import PostList from "@/components/Lists/ListPost";
+import ProjectList from "@/components/Lists/ProjectList";
 import React from "react";
 
 const PostPage = () => {
     return (
         <MainLayout>
-            <PostList display={false}/>
+            <ProjectList display={false} />
         </MainLayout>
     );
 };

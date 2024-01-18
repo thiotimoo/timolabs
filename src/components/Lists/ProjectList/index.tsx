@@ -20,9 +20,8 @@ const ProjectList: React.FC<IProjectList> = async ({ display = false }) => {
     return (
         <Section>
             <HeaderSection
-                text="My Projects"
                 href={display ? "/projects" : undefined}
-            />
+            >My Projects</HeaderSection>
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-6`}>
                 {data.map((item) => {
                     return <ItemProject key={item.slug} {...item} />;

@@ -15,10 +15,9 @@ const PostList: React.FC<IPostList> = async ({ display = false }) => {
     const data = await getData(display);
     return (
         <Section>
-            <HeaderSection
-                text="Recent Posts"
-                href={display ? "/posts" : undefined}
-            />
+            <HeaderSection href={display ? "/posts" : undefined}>
+                Recent Posts
+            </HeaderSection>
             <div className={`grid grid-cols-1 gap-4`}>
                 {data.map((item) => {
                     return <ItemPost key={item.slug} {...item} />;
