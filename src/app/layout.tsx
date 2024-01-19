@@ -5,8 +5,8 @@ import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Providers from "@/components/Providers";
+import Footer from "@/components/Layouts/FooterLayout";
+import Providers from "@/components/Layouts/ProviderLayout";
 
 const gabaritoFont = Gabarito({
     subsets: ["latin"],

@@ -1,11 +1,8 @@
-import Article from "@/components/Article";
-import Section from "@/components/Section/BaseSection";
-import AboutSection from "@/components/Section/AboutSection";
-import Introduction from "@/components/Section/IntroSection";
-import PostList from "@/components/Lists/PostList";
-import ProjectList from "@/components/Lists/ProjectList";
-import Image from "next/image";
-import TechStackSection from "@/components/Section/TechStack";
+import AboutSection from "@/components/section/AboutSection";
+import Introduction from "@/components/section/IntroSection";
+import PostList from "@/components/list/PostList";
+import ProjectList from "@/components/list/ProjectList";
+import TechStackSection from "@/components/section/TechStackSection";
 
 export default function Home() {
     return (

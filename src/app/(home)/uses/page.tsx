@@ -1,4 +1,4 @@
-import TechStackSection from "@/components/Section/TechStack";
+import TechStackSection from "@/components/section/TechStackSection";
 import React from "react";
 
 const UsesPage = () => {

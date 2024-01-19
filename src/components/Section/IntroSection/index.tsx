@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import Section from "../BaseSection";
 import Link from "next/link";
 import {
     CaretDown,
@@ -11,7 +9,7 @@ import {
     YoutubeLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import { motion } from "framer-motion";
-import IconLink from "@/components/Buttons/IconLink";
+import IconLink from "@/components/button/template/IconLink";
 
 const Introduction = () => {
     return (

@@ -1,14 +1,9 @@
 "use client";
+import { ISectionProps } from "@/types/base";
 import { motion } from "framer-motion";
 import React from "react";
 
-interface SectionProps {
-    children: React.ReactNode;
-    className?: string;
-    cols?: number;
-}
-
-const Section: React.FC<SectionProps> = ({ children, className, cols = 1 }) => {
+const BaseSection: React.FC<ISectionProps> = ({ children, className, cols = 1 }) => {
     return (
         <motion.section
             initial={{ y: 50, opacity: 0 }}
@@ -21,4 +16,4 @@ const Section: React.FC<SectionProps> = ({ children, className, cols = 1 }) => {
     );
 };
 
-export default Section;
+export default BaseSection;

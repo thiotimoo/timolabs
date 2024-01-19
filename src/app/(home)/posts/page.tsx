@@ -1,5 +1,5 @@
-import MainLayout from "@/components/Layouts/MainLayout";
-import PostList from "@/components/Lists/PostList";
+import MainLayout from "@/components/layout/MainLayout";
+import PostList from "@/components/list/PostList";
 import React from "react";
 
 const PostPage = () => {

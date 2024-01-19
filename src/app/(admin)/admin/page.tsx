@@ -1,16 +1,14 @@
-import MainLayout from "@/components/Layouts/MainLayout";
-import Section from "@/components/Section/BaseSection";
-import HeaderSection from "@/components/Section/HeaderSection";
-import Sidebar from "@/components/Sidebar";
+import BaseSection from "@/components/section/BaseSection";
+import HeaderSection from "@/components/section/HeaderSection";
 import React from "react";
 
 const AdminPage = () => {
     return (
-        <Section>
+        <BaseSection>
             <HeaderSection>
                 Admin Dashboard
             </HeaderSection>
-        </Section>
+        </BaseSection>
     );
 };
 

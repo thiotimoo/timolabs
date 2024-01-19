@@ -3,7 +3,7 @@ import { getBlogBySlug } from "@/lib/blogs";
 import { BlogPostProps, IBlogBuilder } from "@/types/blogs";
 import React from "react";
 import BlogLayout from "@/components/Layouts/BlogLayout";
-import MarkdownBuilder from "@/components/Builder/MarkdownBuilder";
+import MarkdownBuilder from "@/components/builder/MarkdownBuilder";
 const getData = async (blogType: string,slug: string) => {
     const data: BlogPostProps = await getBlogBySlug(blogType, slug);
     return data;

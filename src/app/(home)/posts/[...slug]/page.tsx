@@ -1,5 +1,5 @@
 import React from "react";
-import BlogBuilder from "@/components/Builder/BlogBuilder";
+import BlogBuilder from "@/components/builder/BlogBuilder";
 
 const ViewPostPage = ({ params }: any) => {
     const { slug } = params;

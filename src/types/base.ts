@@ -6,6 +6,19 @@ export interface IContainerProps {
     children: React.ReactNode;
 }
 
+export interface IButtonProps { 
+    className?: string;
+    children: React.ReactNode;
+    onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+
+export interface ISectionProps {
+    children: React.ReactNode;
+    className?: string;
+    cols?: number;
+}
+
 export interface IBaseProps {
     className?: string;
 }
