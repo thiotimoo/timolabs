@@ -15,11 +15,11 @@ export async function POST(req: Request, res: Response) {
     } = await req.json();
 
     const blog = new Blog({
-        title: title.toString(),
-        description: description.toString(),
-        imageUrl: imageUrl.toString(),
-        bodyContent: bodyContent.toString(),
-        category: category.toString(),
+        title: title,
+        description: description,
+        imageUrl: imageUrl,
+        bodyContent: bodyContent,
+        category: category,
         pinned: pinned,
         tags: tags,
     });

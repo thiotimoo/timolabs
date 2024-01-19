@@ -39,7 +39,7 @@ const SidebarList: React.FC<ISidebarDataProps> = ({ data }) => {
     return (
         <ul className="flex-col w-full gap-2 flex px-4 md:px-2 py-2">
             {data.map((item) => (
-                <SidebarItem text={item.name} href={item.path} />
+                <SidebarItem key={item.name} text={item.name} href={item.path} />
             ))}
         </ul>
     );

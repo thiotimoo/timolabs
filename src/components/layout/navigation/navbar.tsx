@@ -39,7 +39,7 @@ const NavbarList: React.FC<INavbarDataProps> = ({ data }) => {
     return (
         <ul className="flex-row md:w-auto w-full h-full gap-2 flex px-4 md:px-2 py-2">
             {data.map((item) => (
-                <NavbarItem text={item.name} href={item.path} />
+                <NavbarItem key={item.name} text={item.name} href={item.path} />
             ))}
         </ul>
     );

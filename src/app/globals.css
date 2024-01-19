@@ -68,7 +68,7 @@ body {
 }
 
 .border-adaptive {
-    @apply border-2 border-fore dark:border-fore-dark border-opacity-10 dark:border-opacity-10;
+    @apply border-fore dark:border-fore-dark border-opacity-10 dark:border-opacity-10;
 }
 
 .bg-surface-adaptive {

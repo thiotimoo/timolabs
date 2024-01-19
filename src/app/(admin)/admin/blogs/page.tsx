@@ -1,6 +1,7 @@
 
 import { HeaderSection, Section } from "@/components/layout";
 import { AddBlogButton, FilterBlogButton } from "@/components/ui/admin";
+import { BlogTable } from "@/components/ui/admin/table";
 import { SearchBar } from "@/components/ui/input";
 import React from "react";
 
@@ -13,6 +14,7 @@ const BlogsAdminPage = () => {
                 <AddBlogButton />
                 <FilterBlogButton />
             </div>
+            <BlogTable/>
         </Section>
     );
 };
