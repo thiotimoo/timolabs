@@ -1,16 +1,15 @@
-import SearchBar from '@/components/design/SearchBar';
-import BaseSection from '@/components/section/BaseSection';
-import HeaderSection from '@/components/section/HeaderSection';
+import { HeaderSection, Section } from '@/components/layout';
+import { SearchBar } from '@/components/ui/input';
 import React from 'react'
 
 const WorksAdminPage = () => {
     return (
-        <BaseSection>
+        <Section>
             <HeaderSection>
                 Manage Works
             </HeaderSection>
             <SearchBar className='max-w-screen-md'/>
-        </BaseSection>
+        </Section>
     );
 }
 

@@ -1,6 +1,5 @@
-import Navbar from "@/components/layout/NavbarLayout";
-import FooterLayout from "@/components/layout/FooterLayout";
-import ProviderLayout from "@/components/layout/ProviderLayout";
+import { Footer, Navbar, Provider } from "@/components/layout";
+import NavPageItems from "@/lib/data/nav-page-items";
 
 export default function RootLayout({
     children,
@@ -9,13 +8,13 @@ export default function RootLayout({
 }) {
     return (
         <>
-            <Navbar className="fixed z-50 top-0" />
-            <ProviderLayout>
+            <Navbar data={NavPageItems} />
+            <Provider>
                 <main className="flex-grow w-full flex flex-col items-center">
                     {children}
                 </main>
-                <FooterLayout />
-            </ProviderLayout>
+                <Footer />
+            </Provider>
         </>
     );
 }

@@ -1,6 +1,6 @@
 import { UrlObject } from "url";
 
-export type BlogType = "posts" | "projects";
+export type BlogType = "blogs" | "works";
 export type ProjectType = "web" | "game";
 
 export interface BlogMetadata {
@@ -32,7 +32,6 @@ export type BlogPostProps = {
 };
 
 export interface IBlogLayoutProps {
-    className?: string;
     children: React.ReactNode;
     frontMatter: BlogFrontMatter;
 }

@@ -1,6 +1,11 @@
 import { UrlObject } from "url";
 import { BlogFrontMatter } from "./blogs";
 
+export type MenuItem = {
+    readonly name: string;
+    readonly path: string;
+};
+
 export interface IContainerProps {
     className?: string;
     children: React.ReactNode;
