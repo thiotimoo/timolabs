@@ -1,3 +1,4 @@
+import { IBlog } from "@/model/Blog";
 import { UrlObject } from "url";
 
 export type BlogType = "blogs" | "works";
@@ -33,7 +34,7 @@ export type BlogPostProps = {
 
 export interface IBlogLayoutProps {
     children: React.ReactNode;
-    frontMatter: BlogFrontMatter;
+    blogData: IBlog;
 }
 
 export type IMarkdownProps = {

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import NavAdminItems from "@/lib/data/nav-admin-items";
 import { Provider, Sidebar } from "@/components/layout";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
     title: "Admin Dashboard",

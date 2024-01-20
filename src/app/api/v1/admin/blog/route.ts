@@ -11,6 +11,8 @@ export async function POST(req: Request, res: Response) {
         bodyContent,
         category,
         pinned,
+        blogType,
+        slug,
         tags,
     } = await req.json();
 
@@ -21,6 +23,8 @@ export async function POST(req: Request, res: Response) {
         bodyContent: bodyContent,
         category: category,
         pinned: pinned,
+        blogType: blogType,
+        slug: slug,
         tags: tags,
     });
 
@@ -31,7 +35,14 @@ export async function POST(req: Request, res: Response) {
 export async function GET(req: Request, res: Response) {
     await connectDatabase();
     try {
-        const data = await Blog.find();
+        const { searchParams } = new URL(req.url);
+        const slug = searchParams.get("slug");
+        let data;
+        if (slug) {
+            data = await Blog.findOne({ slug: slug });
+        } else {
+            data = await Blog.find().sort({ createdAt: "desc" });
+        }
         return Response.json({ statusCode: 200, data: data });
     } catch (error) {
         console.log(error);

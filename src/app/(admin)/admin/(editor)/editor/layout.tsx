@@ -19,7 +19,6 @@ export default function RootLayout({
 }) {
     return (
         <div className="flex flex-col w-full h-full min-h-svh divide-y divide-adaptive ">
-            <EditorTopBar />
             <Provider>{children}</Provider>
         </div>
     );
