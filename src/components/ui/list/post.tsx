@@ -13,7 +13,7 @@ export const PostList: React.FC<IPostList> = ({ display = false }) => {
     };
     useEffect(() => {
         fetchData();
-    })
+    }, [])
     
     return (
         <Section>

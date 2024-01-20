@@ -13,7 +13,7 @@ export const ProjectList: React.FC<IProjectList> = ({ display = false }) => {
     };
     useEffect(() => {
         fetchData();
-    })
+    }, [])
     return (
         <Section>
             <HeaderSection href={display ? "/works" : undefined}>

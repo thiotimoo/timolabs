@@ -33,7 +33,7 @@ export const BlogTable = () => {
 
     useEffect(() => {
         fetchData();
-    });
+    }, []);
     return (
         <div className="rounded-lg w-full overflow-x-auto bg-surface-adaptive pb-2">
             <table className="table-auto w-full border-collapse">
