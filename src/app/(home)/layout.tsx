@@ -1,5 +1,7 @@
 import { Footer, Navbar, Provider } from "@/components/layout";
 import NavPageItems from "@/lib/data/nav-page-items";
+import "./home.css"
+import "@/app/globals.css"
 
 export default function RootLayout({
     children,

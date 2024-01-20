@@ -27,3 +27,14 @@ export async function POST(req: Request, res: Response) {
     const doc = await blog.save();
     return Response.json({ statusCode: 200, data: doc });
 }
+
+export async function GET(req: Request, res: Response) {
+    await connectDatabase();
+    try {
+        const data = await Blog.find();
+        return Response.json({ statusCode: 200, data: data });
+    } catch (error) {
+        console.log(error);
+        return Response.json({ statusCode: 400, error: error });
+    }
+}

@@ -1,18 +1,9 @@
 import Blog from "@/model/Blog";
 import React from "react";
 import { EmptyTableBody } from "../../table";
+import { fetchBlogList } from "@/lib/admin";
 const cellClassName = "px-6 py-2 text-start";
 const rowClassName = "border-b border-adaptive";
-
-const fetchBlogList = async () => {
-    try {
-        const data = await Blog.find({});
-        return data;
-    } catch (error) {
-        console.log(error);
-        return [];
-    }
-};
 
 export interface IBlogRowProps {
     item: any; //TODO: CHANGE THE TYPE
@@ -41,9 +32,8 @@ export const BlogTable = async () => {
                         <th className={cellClassName}>Category</th>
                     </tr>
                 </thead>
-                {blogList.length ? (
                     <tbody>
-                        {blogList.map((item, index) => {
+                        {blogList.map((item: any, index: Number) => {
                             if (index == blogList.length - 1) {
                                 return <BlogRow item={item} className="" />;
                             }
@@ -52,9 +42,7 @@ export const BlogTable = async () => {
                             );
                         })}
                     </tbody>
-                ) : (
-                    <EmptyTableBody />
-                )}
+                
             </table>
         </div>
     );

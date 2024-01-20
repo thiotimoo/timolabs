@@ -8,11 +8,8 @@
     }
 }
 
-
-
 body {
     @apply bg-adaptive text-adaptive;
-    overflow-y: scroll;
 }
 
 .font-space {

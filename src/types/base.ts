@@ -14,7 +14,9 @@ export interface IContainerProps {
 export interface IButtonProps { 
     className?: string;
     children: React.ReactNode;
-    onClick: React.MouseEventHandler<HTMLButtonElement>;
+    href?: string;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    type: "link" | "button";
 }
 
 

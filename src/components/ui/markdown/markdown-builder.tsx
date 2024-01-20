@@ -1,5 +1,4 @@
 import { IMarkdownProps } from "@/types/blogs";
-import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
@@ -16,7 +15,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <h2
-                            className="text-adaptive text-3xl font-bold mb-4"
+                            className="text-adaptive text-3xl font-bold mb-4 break-words"
                             {...rest}
                         />
                     );
@@ -25,7 +24,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <h3
-                            className="text-adaptive text-2xl font-bold"
+                            className="text-adaptive text-2xl font-bold break-words"
                             {...rest}
                         />
                     );
@@ -34,7 +33,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <h4
-                            className="text-adaptive text-xl font-bold"
+                            className="text-adaptive text-xl font-bold break-words"
                             {...rest}
                         />
                     );
@@ -43,7 +42,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <h5
-                            className="text-adaptive text-lg font-bold"
+                            className="text-adaptive text-lg font-bold break-words"
                             {...rest}
                         />
                     );
@@ -52,7 +51,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <h6
-                            className="text-adaptive text-base font-bold"
+                            className="text-adaptive text-base font-bold break-words"
                             {...rest}
                         />
                     );
@@ -61,7 +60,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <h6
-                            className="text-adaptive text-sm font-bold"
+                            className="text-adaptive text-sm font-bold break-words"
                             {...rest}
                         />
                     );
@@ -69,11 +68,11 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
 
                 strong(props) {
                     const { node, ...rest } = props;
-                    return <strong className="text-adaptive" {...rest} />;
+                    return <strong className="text-adaptive break-words" {...rest} />;
                 },
                 a(props) {
                     const { node, ...rest } = props;
-                    return <a className="text-link" {...rest} />;
+                    return <a className="text-link break-words" {...rest} />;
                 },
                 img(props) {
                     const { node, ...rest } = props;
@@ -83,7 +82,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <p
-                            className="text-adaptive"
+                            className="text-adaptive break-words"
                             {...rest}
                         />
                     );
@@ -93,7 +92,7 @@ export const MarkdownBuilder: React.FC<IMarkdownProps> = ({markdownBody}) => {
                     const { node, ...rest } = props;
                     return (
                         <code
-                            className="text-adaptive"
+                            className="text-adaptive break-words"
                             {...rest}
                         />
                     );

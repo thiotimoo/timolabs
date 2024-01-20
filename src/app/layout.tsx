@@ -4,10 +4,6 @@ import { Space_Mono } from "next/font/google";
 import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Layouts/FooterLayout";
-import Providers from "@/components/Layouts/ProviderLayout";
-
 const gabaritoFont = Gabarito({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
