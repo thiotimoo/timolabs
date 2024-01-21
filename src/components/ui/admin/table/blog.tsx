@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchBlogList } from "@/lib/admin";
 import { EmptyTableBody } from "../../table";
+import { useRouter } from "next/navigation";
+import { BlogType } from "@/types/blogs";
+import { IBlog } from "@/model/Blog";
 const cellClassName = "px-6 py-2 text-start";
 const rowClassName = "border-b border-adaptive";
 
@@ -10,25 +13,39 @@ export interface IBlogRowProps {
     className: string;
 }
 
+export interface IBlogTableProps {
+    blogType: BlogType;
+}
+
 export const BlogRow: React.FC<IBlogRowProps> = ({ item, className }) => {
+    const router = useRouter();
+    const handleClick = () => {
+        router.push("/admin/editor/"+item.blogType+"/" + item._id.toString());
+    };
     return (
-        <tr className={className}>
-            <td className={cellClassName}>{item.title}</td>
+        <tr
+            className={`${className} cursor-pointer hover:text-green-400 transition-all`}
+            onClick={handleClick}
+        >
+            <td className={cellClassName}>
+                {item.title.trim() != "" ? item.title : "(untitled)"}
+            </td>
             <td className={cellClassName}>{item.createdAt.toString()}</td>
             <td className={cellClassName}>{item.category}</td>
+            <td className={cellClassName}>{item.visibility}</td>
         </tr>
     );
 };
 
-export const BlogTable = () => {
+export const BlogTable: React.FC<IBlogTableProps> = ({blogType}) => {
     const [blogList, setBlogList] = useState([]);
 
-        // const clearData = () => {
-        //     setBlogList([]);
-        // };
+    // const clearData = () => {
+    //     setBlogList([]);
+    // };
 
     const fetchData = async () => {
-        setBlogList(await fetchBlogList());
+        setBlogList(await fetchBlogList(blogType));
     };
 
     useEffect(() => {
@@ -42,20 +59,31 @@ export const BlogTable = () => {
                         <th className={cellClassName}>Title</th>
                         <th className={cellClassName}>Date</th>
                         <th className={cellClassName}>Category</th>
+                        <th className={cellClassName}>Visibility</th>
                     </tr>
                 </thead>
                 <tbody>
                     {blogList.map((item: any, index: Number) => {
                         if (index == blogList.length - 1) {
-                            return <BlogRow key={item.key} item={item} className="" />;
+                            return (
+                                <BlogRow
+                                    key={item.key}
+                                    item={item}
+                                    className=""
+                                />
+                            );
                         }
-                        return <BlogRow key={item.key} item={item} className={rowClassName} />;
+                        return (
+                            <BlogRow
+                                key={item.key}
+                                item={item}
+                                className={rowClassName}
+                            />
+                        );
                     })}
                 </tbody>
-                
-                
             </table>
-            {!blogList.length && <EmptyTableBody/>}
+            {!blogList.length && <EmptyTableBody />}
         </div>
     );
 };

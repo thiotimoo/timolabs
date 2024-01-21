@@ -5,6 +5,7 @@ export async function POST(req: Request, res: Response) {
     await connectDatabase();
 
     const {
+        _id,
         title,
         description,
         imageUrl,
@@ -13,10 +14,12 @@ export async function POST(req: Request, res: Response) {
         pinned,
         blogType,
         slug,
+        visibility,
         tags,
     } = await req.json();
 
     const blog = new Blog({
+        _id: _id,
         title: title,
         description: description,
         imageUrl: imageUrl,
@@ -25,10 +28,20 @@ export async function POST(req: Request, res: Response) {
         pinned: pinned,
         blogType: blogType,
         slug: slug,
+        visibility,
         tags: tags,
     });
 
-    const doc = await blog.save();
+    let doc;
+    if (_id) {
+        doc = await Blog.findByIdAndUpdate(_id, blog, {
+            new: true,
+            upsert: true, // Make this update into an upsert
+        });
+    } else {
+        doc = await blog.save();
+    }
+
     return Response.json({ statusCode: 200, data: doc });
 }
 
@@ -37,11 +50,15 @@ export async function GET(req: Request, res: Response) {
     try {
         const { searchParams } = new URL(req.url);
         const slug = searchParams.get("slug");
+        const blogType = searchParams.get("type") || "blogs";
+        const id = searchParams.get("id");
         let data;
         if (slug) {
-            data = await Blog.findOne({ slug: slug });
+            data = await Blog.findOne({ slug: slug, blogType: blogType });
+        } else if (id) {
+            data = await Blog.findOne({ _id: id });
         } else {
-            data = await Blog.find().sort({ createdAt: "desc" });
+            data = await Blog.find({ blogType: blogType }).sort({ createdAt: "desc" });
         }
         return Response.json({ statusCode: 200, data: data });
     } catch (error) {

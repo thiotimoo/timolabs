@@ -43,7 +43,7 @@ export const getSortedPostData = async (
     blogType: BlogType,
     limit: number = 100
 ) => {
-    const blogList = await fetchBlogList();
+    const blogList = await fetchBlogList(blogType);
 
     return blogList
         .sort((a: any, b: any) => {
@@ -75,7 +75,19 @@ export const getSortedPostData = async (
 
 export const fetchBlogBySlug = async (blogType: string, slug: string) => {
     const response = await fetch(
-        (process.env.BASE_URL ?? "") + (`/api/v1/admin/blog?slug=${slug}`)
+        (process.env.BASE_URL ?? "") + (`/api/v1/blog?slug=${slug}&type=${blogType}`)
+    );
+    const payload = await response.json();
+    if (payload.statusCode == 200) {
+        return payload.data;
+    }
+
+    return {};
+};
+
+export const fetchBlogById = async (blogType: string, id: string) => {
+    const response = await fetch(
+        (process.env.BASE_URL ?? "") + (`/api/v1/blog?id=${id}`)
     );
     const payload = await response.json();
     if (payload.statusCode == 200) {

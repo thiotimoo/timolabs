@@ -11,10 +11,10 @@ const BlogsAdminPage = () => {
             <HeaderSection>Manage Blogs</HeaderSection>
             <SearchBar className="w-full" />
             <div className="flex flex-wrap justify-between w-full gap-2">
-                <AddBlogButton />
+                <AddBlogButton blogType="blogs" />
                 <FilterBlogButton />
             </div>
-            <BlogTable/>
+            <BlogTable blogType="blogs"/>
         </Section>
     );
 };

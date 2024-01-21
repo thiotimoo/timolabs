@@ -1,5 +1,7 @@
+import { BlogVisibility } from "@/types/blogs";
 import mongoose from "mongoose";
 export interface IBlog {
+    _id?: string,  
     title: string;
     description?: string;
     imageUrl?: string;
@@ -10,19 +12,21 @@ export interface IBlog {
     blogType: "blogs" | "works";
     tags?: [string];
     createdAt? : Date;
+    visibility?: BlogVisibility;
 }
 
 const Blog = new mongoose.Schema<IBlog>(
     {
-        title: { type: String, required: true },
+        title: String,
         description: String,
         imageUrl: String,
         slug: String,
-        bodyContent: { type: String, required: true },
+        bodyContent: String,
         category: String,
         pinned: Boolean,
         blogType: String,
         tags: [String],
+        visibility: String,
     },
     {
         timestamps: true,

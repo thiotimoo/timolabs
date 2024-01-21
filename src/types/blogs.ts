@@ -3,6 +3,7 @@ import { UrlObject } from "url";
 
 export type BlogType = "blogs" | "works";
 export type ProjectType = "web" | "game";
+export type BlogVisibility = "draft" | "published";
 
 export interface BlogMetadata {
     blogType: BlogType;

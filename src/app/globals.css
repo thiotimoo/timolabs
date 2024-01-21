@@ -10,6 +10,7 @@
 
 body {
     @apply bg-adaptive text-adaptive;
+    overflow-y: scroll;
 }
 
 .font-space {
@@ -21,7 +22,13 @@ body {
 }
 
 .bg-gradient-intro {
-    background-image: linear-gradient(to bottom, #071444 , #3C3781,#514A91,#7D6F7F);
+    background-image: linear-gradient(
+        to bottom,
+        #071444,
+        #3c3781,
+        #514a91,
+        #7d6f7f
+    );
 }
 
 .bg-adaptive {

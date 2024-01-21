@@ -4,7 +4,7 @@ import { getSortedPostData } from "@/lib/blogs";
 import { IProjectList } from "@/types/base";
 import { HeaderSection, Section } from "@/components/layout/section";
 import { ItemProject } from "../item";
-const BLOG_TYPE = "blogs"
+const BLOG_TYPE = "works"
 
 export const ProjectList: React.FC<IProjectList> = ({ display = false }) => {
     const [data,setData] = useState([])
