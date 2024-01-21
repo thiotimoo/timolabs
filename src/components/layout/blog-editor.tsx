@@ -8,24 +8,40 @@ import { BlogType } from "@/types/blogs";
 import { ObjectId } from "mongoose";
 import { useRouter } from "next/navigation";
 import React, { ChangeEventHandler, useEffect, useState } from "react";
+import { Article } from ".";
+import { Image, Tag } from "@phosphor-icons/react/dist/ssr";
 interface IBlogEditorPage {
     blogType: BlogType;
     id: string;
 }
 export const BlogEditorPage: React.FC<IBlogEditorPage> = ({ id, blogType }) => {
     const router = useRouter();
+
     const [visibility, setVisibility] = useState("draft");
     const [markdown, setMarkdown] = useState("");
     const [category, setCategory] = useState("");
     const [title, setTitle] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [slug, setSlug] = useState("");
+
+    const [blogData, setBlogData] = useState({
+        title: title,
+        bodyContent: markdown,
+        blogType: blogType,
+        imageUrl: imageUrl,
+        slug: slug,
+        category: category,
+        visibility: visibility,
+        _id: id,
+    });
+
     const handleMarkdownChange: ChangeEventHandler<HTMLTextAreaElement> = (
         event
     ) => setMarkdown(event.target.value);
     const handleTitleChange: React.ChangeEventHandler<HTMLInputElement> = (
         event
     ) => {
+        setSlug(event.target.value.toLowerCase().replaceAll(" ", "-"));
         setTitle(event.target.value);
     };
     const handleImageUrlChange: React.ChangeEventHandler<HTMLInputElement> = (
@@ -46,17 +62,8 @@ export const BlogEditorPage: React.FC<IBlogEditorPage> = ({ id, blogType }) => {
     const onPublishClick: React.MouseEventHandler<HTMLButtonElement> = (
         event
     ) => {
-        const blog: IBlog = {
-            title: title,
-            bodyContent: markdown,
-            blogType: blogType,
-            imageUrl: imageUrl,
-            slug: slug,
-            category: category,
-            visibility: "published",
-            _id: id,
-        };
-        updateBlog(blog).then((response) => {
+        setVisibility("published");
+        updateBlog(blogData).then((response) => {
             if (response.statusCode == 200) {
                 router.push("/admin/" + blogType);
             } else if (response.error) {
@@ -66,17 +73,7 @@ export const BlogEditorPage: React.FC<IBlogEditorPage> = ({ id, blogType }) => {
     };
 
     const onSaveClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-        const blog: IBlog = {
-            title: title,
-            bodyContent: markdown,
-            blogType: blogType,
-            imageUrl: imageUrl,
-            slug: slug,
-            category: category,
-            visibility: "draft",
-            _id: id,
-        };
-        updateBlog(blog).then((response) => {
+        updateBlog(blogData).then((response) => {
             if (response.statusCode == 200) {
                 // router.push("/admin/blogs");
                 alert("Draft saved!");
@@ -100,41 +97,68 @@ export const BlogEditorPage: React.FC<IBlogEditorPage> = ({ id, blogType }) => {
     useEffect(() => {
         fetchData();
     }, []);
+    useEffect(() => {
+        const blog = {
+            title: title,
+            bodyContent: markdown,
+            blogType: blogType,
+            imageUrl: imageUrl,
+            slug: slug,
+            category: category,
+            visibility: visibility,
+            _id: id,
+        };
+        setBlogData(blog);
+    }, [title, markdown, blogType, imageUrl, slug, category, visibility]);
     return (
         <div className="flex flex-col w-full h-full min-h-svh divide-y divide-adaptive ">
             <EditorTopBar
-                onTitleChange={handleTitleChange}
-                title={title}
+                onSlugChange={handleSlugChange}
+                slug={slug}
                 blogType={blogType}
                 blogVisibility={visibility}
                 onPublishClick={onPublishClick}
                 onSaveClick={onSaveClick}
             />
             <main className="flex-1 flex flex-row divide-x divide-adaptive items-stretch">
-                <div className="flex flex-col flex-1 bg-surface-adaptive ">
+                <div className="flex flex-col flex-1 bg-surface-adaptive p-6 gap-2">
                     <input
-                        className="bg-transparent outline-none text-2xl text-ellipsis w-full"
-                        placeholder="(your-slug-here)"
-                        prefix={"/" + blogType}
-                        onChange={handleSlugChange}
-                        value={slug}
-                    />
-                    <input
-                        className="bg-transparent outline-none text-2xl text-ellipsis w-full"
-                        placeholder="(image-url)"
-                        onChange={handleImageUrlChange}
-                        value={imageUrl}
+                        className="bg-transparent outline-none text-5xl font-space font-bold text-ellipsis w-full px-4"
+                        placeholder="(untitled)"
+                        onChange={handleTitleChange}
+                        value={title}
                     />
 
-                    <input
-                        className="bg-transparent outline-none text-2xl text-ellipsis w-full"
-                        placeholder="(category)"
-                        onChange={handleCategoryChange}
-                        value={category}
-                    />
+                    <div className={`relative block mx-2`}>
+                        <Tag
+                            className="absolute m-auto bottom-0 top-0 start-0 flex ms-3 w-5"
+                            size={32}
+                            weight="bold"
+                        />
+                        <input
+                            className="bg-adaptive text-adaptive rounded-md p-2 ps-10 text-lg w-full text-ellipsis"
+                            value={category}
+                            onChange={handleCategoryChange}
+                            placeholder="Category"
+                        />
+                    </div>
+
+                    <div className={`relative block mx-2`}>
+                        <Image
+                            className="absolute m-auto bottom-0 top-0 start-0 flex ms-3 w-5"
+                            size={32}
+                            weight="bold"
+                        />
+                        <input
+                            className="bg-adaptive text-adaptive rounded-md p-2 ps-10 text-lg w-full text-ellipsis"
+                            value={imageUrl}
+                            onChange={handleImageUrlChange}
+                            placeholder="Image URL"
+                        />
+                    </div>
 
                     <textarea
-                        className="p-4 resize-none outline-none bg-transparent w-full h-full"
+                        className="px-4 resize-none outline-none bg-transparent w-full h-full"
                         onChange={handleMarkdownChange}
                         value={markdown}
                         placeholder="Write markdown..."
@@ -142,7 +166,11 @@ export const BlogEditorPage: React.FC<IBlogEditorPage> = ({ id, blogType }) => {
                 </div>
 
                 <div className="flex-1 w-full flex flex-col gap-6 p-6 items-center ">
-                    <MarkdownBuilder markdownBody={markdown} />
+                    {blogData && (
+                        <Article blogData={blogData}>
+                            <MarkdownBuilder markdownBody={markdown} />
+                        </Article>
+                    )}
                 </div>
             </main>
         </div>

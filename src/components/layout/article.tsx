@@ -11,7 +11,7 @@ export const Article: React.FC<IBlogLayoutProps> = ({ children, blogData }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
-            className="flex flex-col gap-6 p-6 items-center"
+            className="flex flex-col gap-6 p-6 items-center w-full"
         >
             {blogData.imageUrl && (
                 <Image

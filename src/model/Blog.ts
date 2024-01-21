@@ -12,7 +12,7 @@ export interface IBlog {
     blogType: "blogs" | "works";
     tags?: [string];
     createdAt? : Date;
-    visibility?: BlogVisibility;
+    visibility?: string;
 }
 
 const Blog = new mongoose.Schema<IBlog>(

@@ -8,19 +8,19 @@ import { PublishBlogButton, SaveDraftButton } from ".";
 import { BlogType, BlogVisibility } from "@/types/blogs";
 
 interface IEditorTopBarProps {
-    title: string;
+    slug: string;
+    onSlugChange: React.ChangeEventHandler<HTMLInputElement>;
     blogVisibility: string;
     blogType: BlogType;
-    onTitleChange: React.ChangeEventHandler<HTMLInputElement>;
     onPublishClick: React.MouseEventHandler<HTMLButtonElement>;
     onSaveClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const EditorTopBar: React.FC<IEditorTopBarProps> = ({
-    title,
+    slug,
+    onSlugChange,
     blogVisibility,
     blogType,
-    onTitleChange,
     onPublishClick,
     onSaveClick,
 }) => {
@@ -28,15 +28,16 @@ export const EditorTopBar: React.FC<IEditorTopBarProps> = ({
         <header className="bg-surface-adaptive h-16">
             <div className="w-full h-16 px-4 flex md:flex-row gap-4 justify-between items-center m-auto">
                 <div className="h-full flex flex-row gap-2 w-full">
-                    <BackButton parentHref={"/admin/"+blogType} />
-                    <div className="h-full flex flex-col justify-center md:w-1/2">
+                    <BackButton parentHref={"/admin/" + blogType} />
+                    <div className="h-full flex flex-row justify-center items-center gap-2">
+                        {blogType}
+                        <span className="p-2 text-neutral-500">/</span>
                         <input
-                            className="bg-transparent outline-none text-2xl text-ellipsis w-full"
-                            placeholder="(untitled)"
-                            onChange={onTitleChange}
-                            value={title}
+                            className="outline-none bg-adaptive text-ellipsis px-2 w-auto rounded-md"
+                            placeholder="(your-slug-here)"
+                            onChange={onSlugChange}
+                            value={slug}
                         />
-                        <p>Last edited at </p>
                     </div>
                     {/* <Logo className="h-full" /> */}
                 </div>
