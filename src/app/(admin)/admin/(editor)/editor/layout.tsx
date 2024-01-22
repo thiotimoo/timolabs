@@ -1,10 +1,7 @@
 import { Metadata } from "next";
-import NavAdminItems from "@/lib/data/nav-admin-items";
-import { Provider, Sidebar } from "@/components/layout";
+import { Provider } from "@/components/layout";
 
 import "@/app/globals.css";
-
-import { EditorTopBar } from "@/components/ui/admin/editor";
 
 export const metadata: Metadata = {
     title: "Admin Dashboard",
