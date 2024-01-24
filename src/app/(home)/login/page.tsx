@@ -1,11 +1,14 @@
 import { StyledButton } from "@/components/ui/button";
 import { authUserSession } from "@/lib/auth-libs";
 import { Password, UserCircle } from "@phosphor-icons/react/dist/ssr";
+import { useSession } from "next-auth/react";
 import React from "react";
 
 const page = async () => {
-  const user = await authUserSession();
-  console.log(user)
+    const user = await authUserSession();
+
+    if (!user) return <div>Unauthorized</div>;
+
     return (
         <main className="flex-grow w-full flex flex-col ">
             <div className="m-auto w-full max-w-sm flex flex-col gap-4 items-center">
@@ -34,7 +37,14 @@ const page = async () => {
                         placeholder="Password"
                     />
                 </div>
-                <StyledButton className="mx-2  w-full"style="primary" type="link" href="/api/auth/signin">Login</StyledButton>
+                <StyledButton
+                    className="mx-2  w-full"
+                    style="primary"
+                    type="link"
+                    href="/api/auth/signin"
+                >
+                    Login
+                </StyledButton>
             </div>
         </main>
     );

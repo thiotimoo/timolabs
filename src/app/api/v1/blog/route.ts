@@ -1,48 +1,57 @@
 import connectDatabase from "@/lib/connectDatabase";
 import Blog from "@/model/Blog";
+import { getToken } from "next-auth/jwt";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: Request, res: Response) {
-    await connectDatabase();
+export async function POST(req: NextRequest, res: NextResponse) {
+    const token = await getToken({ req });
+    if (token && token?.role == "admin") {
+        // Signed in
+        await connectDatabase();
 
-    const {
-        _id,
-        title,
-        description,
-        imageUrl,
-        bodyContent,
-        category,
-        pinned,
-        blogType,
-        slug,
-        visibility,
-        tags,
-    } = await req.json();
+        const {
+            _id,
+            title,
+            description,
+            imageUrl,
+            bodyContent,
+            category,
+            pinned,
+            blogType,
+            slug,
+            visibility,
+            tags,
+        } = await req.json();
 
-    const blog = new Blog({
-        _id: _id,
-        title: title,
-        description: description,
-        imageUrl: imageUrl,
-        bodyContent: bodyContent,
-        category: category,
-        pinned: pinned,
-        blogType: blogType,
-        slug: slug,
-        visibility,
-        tags: tags,
-    });
-
-    let doc;
-    if (_id) {
-        doc = await Blog.findByIdAndUpdate(_id, blog, {
-            new: true,
-            upsert: true, // Make this update into an upsert
+        const blog = new Blog({
+            _id: _id,
+            title: title,
+            description: description,
+            imageUrl: imageUrl,
+            bodyContent: bodyContent,
+            category: category,
+            pinned: pinned,
+            blogType: blogType,
+            slug: slug,
+            visibility,
+            tags: tags,
         });
-    } else {
-        doc = await blog.save();
-    }
 
-    return Response.json({ statusCode: 200, data: doc });
+        let doc;
+        if (_id) {
+            doc = await Blog.findByIdAndUpdate(_id, blog, {
+                new: true,
+                upsert: true, // Make this update into an upsert
+            });
+        } else {
+            doc = await blog.save();
+        }
+
+        return Response.json({ statusCode: 200, data: doc });
+    } else {
+        // Not Signed in
+        return Response.json({ statusCode: 401, error: "Unauthorized" });
+    }
 }
 
 export async function GET(req: Request, res: Response) {
@@ -58,7 +67,9 @@ export async function GET(req: Request, res: Response) {
         } else if (id) {
             data = await Blog.findOne({ _id: id });
         } else {
-            data = await Blog.find({ blogType: blogType }).sort({ createdAt: "desc" });
+            data = await Blog.find({ blogType: blogType }).sort({
+                createdAt: "desc",
+            });
         }
         return Response.json({ statusCode: 200, data: data });
     } catch (error) {

@@ -16,8 +16,8 @@ export const authOptions: NextAuthOptions = {
             await connectDatabase();
             const username = token.name;
             const email = token.email;
+            const role = "user";
             const picture = token.picture;
-            console.log("jwttoken", username, email, picture);
             const userCheck = await User.findOne({ email: email });
             if (userCheck) {
                 return {
@@ -27,15 +27,16 @@ export const authOptions: NextAuthOptions = {
                     picture: userCheck?.picture,
                     email: userCheck?.email,
                     username: userCheck?.username,
+                    role: userCheck?.role,
                     _id: userCheck._id,
                 };
             } else {
                 const newUserCheck = await User.create({
                     username,
                     email,
+                    role,
                     picture,
                 });
-                console.log(newUserCheck);
                 return {
                     ...token,
                     createdAt: newUserCheck?.createdAt,
@@ -43,6 +44,7 @@ export const authOptions: NextAuthOptions = {
                     picture: newUserCheck?.picture,
                     email: newUserCheck?.email,
                     username: newUserCheck?.username,
+                    role: userCheck?.role,
                     _id: newUserCheck._id,
                 };
             }

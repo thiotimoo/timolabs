@@ -4,7 +4,7 @@ export interface IUser {
     username: string;
     email: string;
     picture: string;
-    password: string;
+    role: string;
     createdAt?: Date;
     updatedAt?: Date;
     _id: string;
@@ -14,8 +14,8 @@ const User = new mongoose.Schema<IUser>(
     {
         username: String,
         email: String,
+        role: String,
         picture: String,
-        password: String,
     },
     {
         timestamps: true,
