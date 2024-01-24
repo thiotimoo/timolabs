@@ -1,16 +1,16 @@
 import { StyledButton } from "@/components/ui/button";
+import { authUserSession } from "@/lib/auth-libs";
 import { Password, UserCircle } from "@phosphor-icons/react/dist/ssr";
-import { getServerSession } from "next-auth";
 import React from "react";
 
 const page = async () => {
-  const session = await getServerSession();
-  console.log(session)
+  const user = await authUserSession();
+  console.log(user)
     return (
         <main className="flex-grow w-full flex flex-col ">
             <div className="m-auto w-full max-w-sm flex flex-col gap-4 items-center">
                 <h1 className="font-space text-2xl font-bold text-center text-adaptive-invert bg-adaptive-invert px-2">
-                    {session?.user?.name}
+                    {user?.name}
                 </h1>
                 <div className={`relative block mx-2 w-full`}>
                     <UserCircle

@@ -2,9 +2,9 @@ import connectDatabase from "@/lib/connectDatabase";
 import User from "@/model/User";
 import githubAuth from "next-auth/providers/github";
 import NextAuth, { NextAuthOptions } from "next-auth";
-const { createHash } = require("node:crypto");
-
+const secret= process.env.NEXTAUTH_SECRET;
 export const authOptions: NextAuthOptions = {
+    secret: secret,
     providers: [
         githubAuth({
             clientId: process.env.GITHUB_CLIENT_ID ?? "",
@@ -64,7 +64,6 @@ export const authOptions: NextAuthOptions = {
     session: {
         strategy: "jwt",
     },
-    secret: process.env.AUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
