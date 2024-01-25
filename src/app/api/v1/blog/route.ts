@@ -54,20 +54,31 @@ export async function POST(req: NextRequest, res: NextResponse) {
     }
 }
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: NextRequest, res: NextResponse) {
     await connectDatabase();
+
     try {
         const { searchParams } = new URL(req.url);
         const slug = searchParams.get("slug");
         const blogType = searchParams.get("type") || "blogs";
+        const visibility = searchParams.get("visibility") || "published";
         const id = searchParams.get("id");
+        const token = await getToken({ req });
+        const filter:any = {
+            blogType: blogType,
+        };
+        if (token?.role !== "admin" || (visibility !== "all" && token?.role === "admin")) {
+            filter.visibility = visibility
+        }
         let data;
         if (slug) {
-            data = await Blog.findOne({ slug: slug, blogType: blogType });
+            filter.slug = slug;
+            data = await Blog.findOne({...filter });
         } else if (id) {
-            data = await Blog.findOne({ _id: id });
+            filter._id = id;
+            data = await Blog.findOne({ ...filter });
         } else {
-            data = await Blog.find({ blogType: blogType }).sort({
+            data = await Blog.find({ ...filter }).sort({
                 createdAt: "desc",
             });
         }

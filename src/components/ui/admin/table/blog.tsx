@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { fetchBlogList } from "@/lib/admin";
 import { EmptyTableBody } from "../../table";
 import { useRouter } from "next/navigation";
 import { BlogType } from "@/types/blogs";
 import { IBlog } from "@/model/Blog";
+import { fetchBlogAdminList } from "@/lib/admin";
 const cellClassName = "px-6 py-2 text-start";
 const rowClassName = "border-b border-adaptive";
 
@@ -45,7 +45,7 @@ export const BlogTable: React.FC<IBlogTableProps> = ({blogType}) => {
     // };
 
     const fetchData = async () => {
-        setBlogList(await fetchBlogList(blogType));
+        setBlogList(await fetchBlogAdminList(blogType));
     };
 
     useEffect(() => {

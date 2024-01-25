@@ -2,7 +2,9 @@ import connectDatabase from "@/lib/connectDatabase";
 import User from "@/model/User";
 import githubAuth from "next-auth/providers/github";
 import NextAuth, { NextAuthOptions } from "next-auth";
-const secret= process.env.NEXTAUTH_SECRET;
+
+const secret = process.env.NEXTAUTH_SECRET;
+
 export const authOptions: NextAuthOptions = {
     secret: secret,
     providers: [
