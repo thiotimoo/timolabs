@@ -1,7 +1,9 @@
+import { IBlog } from "@/model/Blog";
 import { UrlObject } from "url";
 
-export type BlogType = "posts" | "projects";
+export type BlogType = "blogs" | "works";
 export type ProjectType = "web" | "game";
+export type BlogVisibility = "draft" | "published";
 
 export interface BlogMetadata {
     blogType: BlogType;
@@ -32,9 +34,8 @@ export type BlogPostProps = {
 };
 
 export interface IBlogLayoutProps {
-    className?: string;
     children: React.ReactNode;
-    frontMatter: BlogFrontMatter;
+    blogData: IBlog;
 }
 
 export type IMarkdownProps = {

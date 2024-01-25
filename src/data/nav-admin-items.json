@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Dashboard",
+        "path": "/admin/dashboard"
+    },
+    {
+        "name": "Blogs",
+        "path": "/admin/blogs"
+    },
+    {
+        "name": "Works",
+        "path": "/admin/works"
+    }
+]

@@ -8,8 +8,6 @@
     }
 }
 
-
-
 body {
     @apply bg-adaptive text-adaptive;
     overflow-y: scroll;
@@ -24,7 +22,13 @@ body {
 }
 
 .bg-gradient-intro {
-    background-image: linear-gradient(to bottom, #071444 , #3C3781,#514A91,#7D6F7F);
+    background-image: linear-gradient(
+        to bottom,
+        #071444,
+        #3c3781,
+        #514a91,
+        #7d6f7f
+    );
 }
 
 .bg-adaptive {
@@ -68,7 +72,7 @@ body {
 }
 
 .border-adaptive {
-    @apply border-2 border-fore dark:border-fore-dark border-opacity-10 dark:border-opacity-10;
+    @apply border-fore dark:border-fore-dark border-opacity-10 dark:border-opacity-10;
 }
 
 .bg-surface-adaptive {
