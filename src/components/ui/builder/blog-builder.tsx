@@ -11,7 +11,7 @@ export const BlogBuilder: React.FC<IBlogBuilder> = ({
     blogType,
     slug,
 }) => {
-    const [blogData, setBlogData] = useState();
+    const [blogData, setBlogData] = useState<any>({})
     const fetchData = async () => {
         setBlogData(await fetchBlogBySlug(blogType, slug));
     };
@@ -23,7 +23,7 @@ export const BlogBuilder: React.FC<IBlogBuilder> = ({
         blogData && (
             <MainContent>
                 <Article blogData={blogData}>
-                    <MarkdownBuilder markdownBody={blogData.bodyContent} />
+                    <MarkdownBuilder markdownBody={blogData?.bodyContent} />
                 </Article>
             </MainContent>
         )
