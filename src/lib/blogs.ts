@@ -60,15 +60,3 @@ export const fetchBlogBySlug = async (blogType: string, slug: string) => {
 
     return {};
 };
-
-export const fetchBlogById = async (blogType: string, id: string) => {
-    const response = await fetch(
-        (process.env.BASE_URL ?? "") + (`/api/v1/blog?id=${id}`)
-    );
-    const payload = await response.json();
-    if (payload.statusCode == 200) {
-        return payload.data;
-    }
-
-    return {};
-};

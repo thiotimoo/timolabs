@@ -4,7 +4,7 @@ import { Logo } from "../../brand";
 import { ArrowLeft, RocketLaunch } from "@phosphor-icons/react/dist/ssr";
 import { StyledButton } from "../../button";
 import BackButton from "../../button/back-button";
-import { PublishBlogButton, SaveDraftButton } from ".";
+import { PublishBlogButton, RemoveBlogButton, SaveDraftButton } from ".";
 import { BlogType, BlogVisibility } from "@/types/blogs";
 
 interface IEditorTopBarProps {
@@ -14,6 +14,7 @@ interface IEditorTopBarProps {
     blogType: BlogType;
     onPublishClick: React.MouseEventHandler<HTMLButtonElement>;
     onSaveClick: React.MouseEventHandler<HTMLButtonElement>;
+    onRemoveClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const EditorTopBar: React.FC<IEditorTopBarProps> = ({
@@ -23,6 +24,7 @@ export const EditorTopBar: React.FC<IEditorTopBarProps> = ({
     blogType,
     onPublishClick,
     onSaveClick,
+    onRemoveClick
 }) => {
     return (
         <header className="bg-surface-adaptive h-16">
@@ -42,6 +44,7 @@ export const EditorTopBar: React.FC<IEditorTopBarProps> = ({
                     {/* <Logo className="h-full" /> */}
                 </div>
                 <div className=" flex flex-row gap-2">
+                    <RemoveBlogButton onClick={onRemoveClick} />
                     {blogVisibility === "draft" && (
                         <SaveDraftButton onClick={onSaveClick} />
                     )}

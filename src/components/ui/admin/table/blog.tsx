@@ -24,7 +24,7 @@ export const BlogRow: React.FC<IBlogRowProps> = ({ item, className }) => {
     };
     return (
         <tr
-            className={`${className} cursor-pointer hover:text-green-400 transition-all`}
+            className={`${className} cursor-pointer hover:underline`}
             onClick={handleClick}
         >
             <td className={cellClassName}>
@@ -52,7 +52,7 @@ export const BlogTable: React.FC<IBlogTableProps> = ({blogType}) => {
         fetchData();
     }, []);
     return (
-        <div className="rounded-lg w-full overflow-x-auto bg-surface-adaptive pb-2">
+        <div className="rounded-lg w-full overflow-x-auto bg-surface-adaptive pb-2 ">
             <table className="table-auto w-full border-collapse">
                 <thead className="text-xs text-adaptive uppercase text-start">
                     <tr>

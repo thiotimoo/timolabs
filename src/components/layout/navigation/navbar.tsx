@@ -20,16 +20,19 @@ const NavbarItem: React.FC<INavbarItemProps> = ({ text, href }) => {
     const currentRoute = usePathname();
     const checkRoute = href === "/" ? currentRoute === "/" : currentRoute.startsWith(href);
     const bgActive = checkRoute
-        ? "bg-fore dark:bg-fore-dark text-back dark:text-back-dark"
-        : "bg-transparent";
+        ? "border-b-white"
+        : "border-b-transparent";
 
     return (
         <li className="w-full h-full items-center justify-center flex">
             <Link
-                className={`text-sm uppercase px-4 py-1 hover:bg-opacity-20 hover:dark:bg-opacity-20 hover:bg-fore hover:dark:bg-fore-dark active:bg-fore active:dark:bg-fore-dark active:text-fore hover:text-fore active:dark:text-fore-dark hover:dark:text-fore-dark rounded-md transition-all font-semibold tracking-wider w-full md:w-auto text-center ${bgActive}`}
+                className={`text-xs uppercase transition-all font-semibold tracking-wider w-full md:w-auto text-center group flex flex-col`}
                 href={href}
             >
+                <div className="rounded-md group-hover:text-[#f55e8e] group-hover:bg-adaptive-invert group-hover:bg-opacity-20 p-4 md:p-2 drop-shadow-md">
                 {text}
+                </div>
+                
             </Link>
         </li>
     );
@@ -37,7 +40,7 @@ const NavbarItem: React.FC<INavbarItemProps> = ({ text, href }) => {
 
 const NavbarList: React.FC<INavbarDataProps> = ({ data }) => {
     return (
-        <ul className="flex-row md:w-auto w-full h-full gap-2 flex px-4 md:px-2 py-2">
+        <ul className="md:flex-row flex-col md:w-auto md:divide-none divide-y divide-adaptive w-full h-full md:gap-2 flex px-4 md:px-2">
             {data.map((item) => (
                 <NavbarItem key={item.name} text={item.name} href={item.path} />
             ))}
@@ -55,8 +58,8 @@ export const Navbar: React.FC<INavbarDataProps> = ({ data }) => {
         setOpen(false);
     }, [pathname]);
     return (
-        <header className="w-full flex flex-col justify-center items-center bg-surface dark:bg-surface-dark bg-opacity-80 dark:bg-opacity-80 backdrop-blur-sm border-b-2 border-opacity-10 dark:border-opacity-10 border-back dark:border-back-dark fixed z-50 top-0">
-            <div className="w-full max-w-screen-lg h-16 px-4 flex md:flex-row gap-4 justify-between items-center">
+        <header className="w-full flex flex-col justify-center items-center bg-adaptive bg-opacity-80 backdrop-blur-lg dark:bg-opacity-80 fixed z-50 top-0">
+            <div className="w-full max-w-screen-lg h-16 px-4 flex md:flex-row gap-4 justify-between md:justify-start items-center ">
                 <Logo className="h-full" />
                 <div className="md:block hidden">
                     <NavbarList data={data} />
