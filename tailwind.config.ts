@@ -8,6 +8,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                mono: ['var(--font-geist-mono)'],
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic":
@@ -20,7 +23,8 @@ const config: Config = {
                 },
                 back: {
                     DEFAULT: "#EEEEEE",
-                    dark: "#121212",
+                    dark: "#000000",
+                    //dark: "#121212",
                 },
                 surface: {
                     DEFAULT: "#FFFFFF",

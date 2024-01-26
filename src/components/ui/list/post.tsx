@@ -20,7 +20,7 @@ export const PostList: React.FC<IPostList> = ({ display = false }) => {
             <HeaderSection href={display ? "/blogs" : undefined}>
                 Recent Posts
             </HeaderSection>
-            <div className={`grid grid-cols-1 gap-4`}>
+            <div className={`grid grid-cols-1 divide-y divide-adaptive`}>
                 {data.map((item: any) => {
                     return <ItemPost key={item.slug} {...item} />;
                 })}

@@ -64,19 +64,21 @@ export async function GET(req: NextRequest, res: NextResponse) {
         const visibility = searchParams.get("visibility") || "published";
         const id = searchParams.get("id");
         const token = await getToken({ req });
-        const filter:any = {
+        const filter: any = {
             blogType: blogType,
         };
-        if (token?.role !== "admin" || (visibility !== "all" && token?.role === "admin")) {
-            filter.visibility = visibility
+        if (
+            token?.role !== "admin" ||
+            (visibility !== "all" && token?.role === "admin")
+        ) {
+            filter.visibility = visibility;
         }
         let data;
         if (slug) {
             filter.slug = slug;
-            data = await Blog.findOne({...filter });
-        } else if (id) {
-            filter._id = id;
             data = await Blog.findOne({ ...filter });
+        } else if (id) {
+            data = await Blog.findOne({ _id: id, ...filter });
         } else {
             data = await Blog.find({ ...filter }).sort({
                 createdAt: "desc",
@@ -86,5 +88,36 @@ export async function GET(req: NextRequest, res: NextResponse) {
     } catch (error) {
         console.log(error);
         return Response.json({ statusCode: 400, error: error });
+    }
+}
+
+export async function DELETE(req: NextRequest, res: NextResponse) {
+    await connectDatabase();
+
+    const token = await getToken({ req });
+    if (token && token?.role == "admin") {
+        // Signed in
+        await connectDatabase();
+        try {
+            const { searchParams } = new URL(req.url);
+            const id = searchParams.get("id");
+            if (token?.role === "admin") {
+                const data = await Blog.findByIdAndDelete(id);
+                if (data) {
+                    return Response.json({
+                        statusCode: 200,
+                        message: "SUCCESS",
+                    });
+                } else {
+                    return Response.json({ statusCode: 400, error: data});
+                }
+            }
+        } catch (error) {
+            console.log(error);
+            return Response.json({ statusCode: 400, error: error });
+        }
+    } else {
+        // Not Signed in
+        return Response.json({ statusCode: 401, error: "Unauthorized" });
     }
 }
