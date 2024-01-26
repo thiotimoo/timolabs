@@ -13,7 +13,7 @@ const ItemTechStack: React.FC<TechStackProps> = ({
     invert = false,
 }) => {
     return (
-        <div className="font-space font-bold text-center self-center justify-center w-1/2 md:w-1/4 sm:w-1/3 grid place-items-center p-4 gap-2">
+        <div className="font-space font-bold text-center self-center justify-center grid-cols-1 grid place-items-center p-4 gap-2">
             <Image
             unoptimized //remove to optimize
                 className={`w-24 h-24 fill-white  ${invert && "dark:invert"}`}

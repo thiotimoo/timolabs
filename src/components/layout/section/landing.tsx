@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import {
+    ArrowRight,
     CaretDown,
     DiscordLogo,
     GithubLogo,
@@ -17,28 +18,24 @@ export const LandingSection = () => {
         <motion.section
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="w-full portrait:min-h-svh overflow-hidden pt-16"
+            className="w-full portrait:min-h-svh px-4 overflow-hidden m-auto grid place-items-center"
         >
-            <div className="m-auto max-w-screen-md w-full bg-adaptive border-adaptive border  text-black rounded-2xl portrait:rounded-none overflow-hidden portrait:m-0">
-                <div className="w-full h-full flex portrait:flex-col-reverse flex-wrap items-center justify-center portrait:min-h-svh portrait:h-full overflow-hidden">
-                    <div className="flex flex-col justify-center items-start gap-4 flex-1 p-6 bg-[#b5b8e5] rounded-r-2xl portrait:rounded-none">
+            <div className=" max-w-screen-md w-full bg-surface-adaptive  border-adaptive border  text-black rounded-2xl overflow-hidden mt-16">
+                <div className="w-full h-full flex portrait:flex-col-reverse flex-wrap items-center justify-center portrait:h-full overflow-hidden">
+                    <div className="flex flex-col justify-center items-start gap-4 flex-1 p-6  text-back dark:text-back-dark portrait:text-back rounded-r-2xl portrait:rounded-none portrait:w-full bg-[#b5b8e5]">
                         <div className="flex flex-col gap-2 items-center">
-                            <h1 className="uppercase text-5xl font-bold tracking-widest text-start font-head w-full">
+                            <h1 className="uppercase text-5xl portrait:text-3xl font-black tracking-widest text-start w-full">
                                 Vincent
                                 <br />
                                 Timothy
                             </h1>
-                            <h1 className="uppercase text-xl font-bold tracking-widest text-start w-full">
-                                Based on Karawang, Indonesia
+                            <h1 className="uppercase text-xl font-mono tracking-widest text-start w-full">
+                                Web Developer based on Karawang, Indonesia.
                             </h1>
                         </div>
-                        <h1 className="text-xl text-start tracking-wider bg-black text-white uppercase font-bold px-4 py-2 rounded-full">
-                            WEB DEVELOPER
-                        </h1>
-                        <CaretDown
-                            size={24}
-                            className="self-center hidden portrait:block"
-                        />
+                        <Link href="/linktree" className="text-xl text-start tracking-wider bg-black text-white font-medium px-4 py-2 rounded-full flex flex-row gap-2 items-center">
+                            Contact Me <ArrowRight weight="bold"/>
+                        </Link>
                     </div>
                     <div className="portrait:flex-none flex-1 w-auto flex m-4">
                         <Image

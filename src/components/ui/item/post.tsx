@@ -16,7 +16,7 @@ export const ItemPost = (blog: IBlog) => {
     } = blog;
     return (
         <Link
-            className="bg-surface-adaptive flex flex-wrap items-start overflow-clip gap-4 py-4"
+            className="flex flex-wrap items-start overflow-clip gap-4 py-4"
             href={`/${blogType}/${slug}`}
         >
             {imageUrl && (

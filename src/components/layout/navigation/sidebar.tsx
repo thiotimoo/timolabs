@@ -69,9 +69,14 @@ export const Sidebar: React.FC<ISidebarDataProps> = ({ data }) => {
             </div>
             {open && (
                 <motion.div
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 15 }}
+                    exit={{ opacity: 0, y: -30 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20
+                      }}
                     className="md:hidden h-full grid place-items-center w-full"
                 >
                     <SidebarList data={data} />
