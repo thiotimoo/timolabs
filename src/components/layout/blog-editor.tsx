@@ -134,11 +134,12 @@
                 setImageUrl(data.imageUrl);
                 setCategory(data.category);
                 setMetadata(data.metadata);
-                setDownloadUrl(data.metadata.downloadUrl);
-                setVisitUrl(data.metadata.visitUrl);
-                setRepoUrl(data.metadata.repoUrl);
-                
                 setSlug(data.slug);
+                setDownloadUrl(data.metadata?.downloadUrl);
+                setVisitUrl(data.metadata?.visitUrl);
+                setRepoUrl(data.metadata?.repoUrl);
+                
+                
             }
         };
 
