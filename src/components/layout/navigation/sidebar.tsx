@@ -61,11 +61,13 @@ export const Sidebar: React.FC<ISidebarDataProps> = ({ data }) => {
                 <div className="md:block hidden w-full">
                     <SidebarList data={data} />
                 </div>
+                
                 <div className="md:hidden h-full grid place-items-center ">
                     <button onClick={toggleOpen}>
                         <List size={32} weight="bold" />
                     </button>
                 </div>
+                
             </div>
             {open && (
                 <motion.div

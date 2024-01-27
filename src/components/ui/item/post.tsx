@@ -16,21 +16,21 @@ export const ItemPost = (blog: IBlog) => {
     } = blog;
     return (
         <Link
-            className="flex flex-wrap items-start overflow-clip gap-4 py-4"
+            className="flex flex-wrap items-start overflow-clip gap-4 py-4 group"
             href={`/${blogType}/${slug}`}
         >
             {imageUrl && (
                 <Image
                     unoptimized //remove to optimize
-                    className=" aspect-video object-cover w-full md:w-64 rounded-xl "
+                    className=" aspect-video object-cover w-full md:w-64 rounded-xl border-2 border-transparent group-hover:border-fore group-hover:dark:border-fore-dark"
                     alt={title}
                     src={imageUrl}
                     width={400}
                     height={225}
                 />
             )}
-            <div className="flex-1 flex flex-col gap-4 items-start justify-between w-full h-full hover:underline">
-                <div className="flex flex-col items-start gap-1">
+            <div className="flex-1 flex flex-col gap-4 items-start justify-between w-full h-full ">
+                <div className="flex flex-col items-start gap-1 group-hover:underline">
                     <h3 className="bg-fore dark:bg-fore-dark text-back dark:text-back-dark px-2 rounded-full font-semibold tracking-wider text-sm">
                         {category}
                     </h3>

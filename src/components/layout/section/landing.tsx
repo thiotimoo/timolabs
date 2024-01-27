@@ -22,7 +22,7 @@ export const LandingSection = () => {
         >
             <div className=" max-w-screen-md w-full bg-surface-adaptive  border-adaptive border  text-black rounded-2xl overflow-hidden mt-16">
                 <div className="w-full h-full flex portrait:flex-col-reverse flex-wrap items-center justify-center portrait:h-full overflow-hidden">
-                    <div className="flex flex-col justify-center items-start gap-4 flex-1 p-6  text-back dark:text-back-dark portrait:text-back rounded-r-2xl portrait:rounded-none portrait:w-full bg-[#b5b8e5]">
+                    <div className="flex flex-col justify-center items-start gap-4 flex-1 p-6  text-black rounded-r-2xl portrait:rounded-none portrait:w-full bg-[#b5b8e5]">
                         <div className="flex flex-col gap-2 items-center">
                             <h1 className="uppercase text-5xl portrait:text-3xl font-black tracking-widest text-start w-full">
                                 Vincent

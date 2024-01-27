@@ -19,15 +19,11 @@ export default async function RootLayout({
     if (!user || !user.role || user.role !== "admin") {
         return <UnauthorizedPage />;
     }
-    
+
     return (
         <div className="flex md:flex-row flex-col w-full h-full min-h-svh max-w-screen-2xl divide-x divide-adaptive ">
             <Sidebar data={NavAdminItems} />
-            <Provider>
-                <main className="flex-grow w-full flex flex-col">
-                    {children}
-                </main>
-            </Provider>
+            <main className="flex-grow w-full flex flex-col">{children}</main>
         </div>
     );
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Section } from "@/components/layout/section";
 import Link from "next/link";
 import { DiscordLogo, GithubLogo, InstagramLogo, YoutubeLogo } from "@phosphor-icons/react/dist/ssr";
+import ThemeSwitch from "@/components/ui/switch/theme-switch";
 interface LinkTreeProps {
     name: string;
     href: string;
@@ -51,6 +52,7 @@ export const LinkTreeSection = () => {
                     name="Discord Server"
                 />
             </div>
+            <ThemeSwitch/>
         </Section>
     );
 };

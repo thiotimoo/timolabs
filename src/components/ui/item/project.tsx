@@ -18,12 +18,13 @@ export const ItemProject = (blog: IBlog) => {
     } = blog;
     return (
         <Link
-            className="border border-fore dark:border-fore-dark border-opacity-30 dark:border-opacity-10 rounded-lg hover:shadow-xl bg-surface-adaptive active:bg-neutral-500 transition-all flex flex-col items-center hover:border-fore hover:dark:border-fore-dark overflow-clip"
+            className="border-2 border-transparent border-opacity-30 dark:border-opacity-10 rounded-2xl bg-surface-adaptive active:bg-neutral-500 flex flex-col items-center hover:border-fore hover:dark:border-fore-dark overflow-clip group"
             href={`/${blogType}/${slug}`}
         >
             <div className="aspect-video object-cover w-full relative">
-                <div className="absolute p-4 flex flex-row gap-4 items-center justify-between w-full z-10 bottom-0">
-                    <div className="flex-grow">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent group-hover:opacity-90 transition-all to-black opacity-70 z-10 w-full h-full "></div>
+                <div className="absolute p-4 flex flex-row gap-4 items-center justify-between w-full z-20 bottom-0">
+                    <div className="flex-grow text-white">
                         <h3 className="text-lg font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,1)] drop">
                             {title}
                         </h3>

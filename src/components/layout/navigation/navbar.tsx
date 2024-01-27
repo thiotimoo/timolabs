@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from "react";
 import { List } from "@phosphor-icons/react/dist/ssr";
 import { usePathname } from "next/navigation";
@@ -6,6 +6,8 @@ import { cubicBezier, motion } from "framer-motion";
 import Link from "next/link";
 import { MenuItem } from "@/types/base";
 import { Logo } from "@/components/ui/brand";
+import ThemeSwitch from "@/components/ui/switch/theme-switch";
+import { useTheme } from "next-themes";
 
 interface INavbarItemProps {
     text: string;
@@ -62,9 +64,11 @@ export const Navbar: React.FC<INavbarDataProps> = ({ data }) => {
                 <div className="md:block hidden">
                     <NavbarList data={data} />
                 </div>
-                <div className="md:hidden h-full grid place-items-center ">
-                    <button onClick={toggleOpen}>
-                        <List size={32} weight="bold" />
+
+                <div className="flex-grow h-full flex flex-row items-center justify-end gap-2 ">
+                    <ThemeSwitch/>
+                    <button className="md:hidden" onClick={toggleOpen}>
+                        <List className="p-1"size={36} weight="bold" />
                     </button>
                 </div>
             </div>
@@ -73,7 +77,7 @@ export const Navbar: React.FC<INavbarDataProps> = ({ data }) => {
                     initial={{ opacity: 0, y: -90 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -90 }}
-                    transition={{ ease: cubicBezier(.35,.17,.3,.86) }}
+                    transition={{ ease: cubicBezier(0.35, 0.17, 0.3, 0.86) }}
                     className="md:hidden h-full w-full bg-adaptive border border-adaptive rounded-b-xl backdrop-blur-lg bg-opacity-80 dark:bg-opacity-80 z-40"
                 >
                     <NavbarList data={data} />
