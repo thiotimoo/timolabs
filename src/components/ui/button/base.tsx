@@ -10,7 +10,7 @@ export const BaseButton: React.FC<IButtonProps> = ({
     href = "/",
     type,
 }) => {
-    const btnClassName = `rounded-md px-3 py-2 text-lg font-semibold ${className}`;
+    const btnClassName = `rounded-md px-4 py-2 text-lg font-semibold ${className}`;
     return (
         (type == "button") ?
         <button className={btnClassName} onClick={onClick}>

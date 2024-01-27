@@ -59,7 +59,7 @@ export const Navbar: React.FC<INavbarDataProps> = ({ data }) => {
     }, [pathname]);
     return (
         <header className="w-full flex flex-col justify-center items-center fixed top-0 z-50">
-            <div className="w-full max-w-screen-lg h-16 px-4 flex md:flex-row gap-4 justify-between md:justify-start items-center bg-opacity-80 backdrop-blur-lg dark:bg-opacity-80 bg-adaptive z-50 ">
+            <div className="w-full max-w-screen-lg h-16 px-4 flex md:flex-row gap-4 justify-between md:justify-start items-center bg-opacity-80 dark:bg-opacity-80 backdrop-blur-lg  z-50 bg-back dark:bg-back-dark">
                 <Logo className="h-full" />
                 <div className="md:block hidden">
                     <NavbarList data={data} />

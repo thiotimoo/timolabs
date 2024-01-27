@@ -49,14 +49,3 @@ export const getSortedPostData = async (
 //     };
 // };
 
-export const fetchBlogBySlug = async (blogType: string, slug: string) => {
-    const response = await fetch(
-        (process.env.BASE_URL ?? "") + (`/api/v1/blog?slug=${slug}&type=${blogType}`)
-    );
-    const payload = await response.json();
-    if (payload.statusCode == 200) {
-        return payload.data;
-    }
-
-    return {};
-};

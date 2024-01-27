@@ -42,9 +42,9 @@ export interface IHeaderSection {
 }
 
 export interface IProjectList {
-    display: boolean;
+    data: any;
 }
 
 export interface IPostList {
-    display: boolean;
+    data: any;
 }

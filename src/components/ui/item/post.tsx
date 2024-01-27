@@ -34,14 +34,14 @@ export const ItemPost = (blog: IBlog) => {
                     <h3 className="bg-fore dark:bg-fore-dark text-back dark:text-back-dark px-2 rounded-full font-semibold tracking-wider text-sm">
                         {category}
                     </h3>
-                    <h3 className="text-xl font-medium ">{title}</h3>
+                    <h3 className="text-xl font-black">{title}</h3>
                     {description && (
-                        <h3 className="text-lg font-normal text-neutral-400 line-clamp-2">
+                        <h3 className="text-lg font-normal text-adaptive line-clamp-2">
                             {description}
                         </h3>
                     )}
                     {createdAt && (
-                        <h3 className="text-base text-blue-400">
+                        <h3 className="text-base text-primary font-mono">
                             {formatDateLong(createdAt.toString())}
                         </h3>
                     )}

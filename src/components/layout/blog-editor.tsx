@@ -8,7 +8,7 @@
     import { useRouter } from "next/navigation";
     import React, { ChangeEventHandler, useEffect, useState } from "react";
     import { Article } from ".";
-    import { Image, Paragraph, Tag } from "@phosphor-icons/react/dist/ssr";
+    import { ArrowSquareOut, Download, GithubLogo, Image, Paragraph, Tag } from "@phosphor-icons/react/dist/ssr";
     interface IBlogEditorPage {
         blogType: BlogType;
         id: string;
@@ -18,11 +18,20 @@
 
         const [visibility, setVisibility] = useState("draft");
         const [markdown, setMarkdown] = useState("");
+        const [downloadUrl, setDownloadUrl] = useState("");
+        const [visitUrl, setVisitUrl] = useState("");
+        const [repoUrl, setRepoUrl] = useState("");
         const [category, setCategory] = useState("");
         const [title, setTitle] = useState("");
         const [description, setDescription] = useState("");
         const [imageUrl, setImageUrl] = useState("");
         const [slug, setSlug] = useState("");
+
+        const [metadata, setMetadata] = useState({
+            downloadUrl: downloadUrl,
+            visitUrl: visitUrl,
+            repoUrl: repoUrl,
+        });
 
         const [blogData, setBlogData] = useState({
             title: title,
@@ -33,6 +42,7 @@
             slug: slug,
             category: category,
             visibility: visibility,
+            metadata: metadata,
             _id: id,
         });
 
@@ -63,9 +73,25 @@
         ) => {
             setCategory(event.target.value);
         };
+        const handleRepoChange: React.ChangeEventHandler<HTMLInputElement> = (
+            event
+        ) => {
+            setRepoUrl(event.target.value);
+        };
+        const handleVisitChange: React.ChangeEventHandler<HTMLInputElement> = (
+            event
+        ) => {
+            setVisitUrl(event.target.value);
+        };
+        const handleDownloadChange: React.ChangeEventHandler<HTMLInputElement> = (
+            event
+        ) => {
+            setDownloadUrl(event.target.value);
+        };
         const onPublishClick: React.MouseEventHandler<HTMLButtonElement> = (
             event
         ) => {
+            console.log(blogData)
             setVisibility("published");
             blogData.visibility = "published"
             updateBlog(blogData).then((response) => {
@@ -107,6 +133,11 @@
                 setTitle(data.title);
                 setImageUrl(data.imageUrl);
                 setCategory(data.category);
+                setMetadata(data.metadata);
+                setDownloadUrl(data.metadata.downloadUrl);
+                setVisitUrl(data.metadata.visitUrl);
+                setRepoUrl(data.metadata.repoUrl);
+                
                 setSlug(data.slug);
             }
         };
@@ -124,13 +155,26 @@
                 category: category,
                 description: description,
                 visibility: visibility,
+                metadata: metadata,
                 _id: id,
             };
             setBlogData(blog);
         }
+
+        const updateMetadata = () => {
+            const metadata = {
+                downloadUrl: downloadUrl,
+                visitUrl: visitUrl,
+                repoUrl: repoUrl,
+            };
+            setMetadata(metadata);
+        }
         useEffect(() => {
             updateBlogData();
-        }, [title, markdown, blogType, imageUrl, slug, category, visibility, description]);
+        }, [title, markdown, blogType, imageUrl, slug, category, visibility, description, metadata]);
+        useEffect(() => {
+            updateMetadata();
+        }, [downloadUrl, visitUrl, repoUrl]);
         return (
             <div className="flex flex-col w-full h-full min-h-svh divide-y divide-adaptive ">
                 <EditorTopBar
@@ -162,6 +206,45 @@
                                 value={category}
                                 onChange={handleCategoryChange}
                                 placeholder="Category"
+                            />
+                        </div>
+                        <div className={`relative block mx-2`}>
+                            <GithubLogo
+                                className="absolute m-auto bottom-0 top-0 start-0 flex ms-3 w-5"
+                                size={32}
+                                weight="bold"
+                            />
+                            <input
+                                className="bg-adaptive text-adaptive rounded-md p-2 ps-10 text-lg w-full text-ellipsis"
+                                value={repoUrl}
+                                onChange={handleRepoChange}
+                                placeholder="Repository URL"
+                            />
+                        </div>
+                        <div className={`relative block mx-2`}>
+                            <ArrowSquareOut
+                                className="absolute m-auto bottom-0 top-0 start-0 flex ms-3 w-5"
+                                size={32}
+                                weight="bold"
+                            />
+                            <input
+                                className="bg-adaptive text-adaptive rounded-md p-2 ps-10 text-lg w-full text-ellipsis"
+                                value={visitUrl}
+                                onChange={handleVisitChange}
+                                placeholder="Visit URL"
+                            />
+                        </div>
+                        <div className={`relative block mx-2`}>
+                            <Download
+                                className="absolute m-auto bottom-0 top-0 start-0 flex ms-3 w-5"
+                                size={32}
+                                weight="bold"
+                            />
+                            <input
+                                className="bg-adaptive text-adaptive rounded-md p-2 ps-10 text-lg w-full text-ellipsis"
+                                value={downloadUrl}
+                                onChange={handleDownloadChange}
+                                placeholder="Download URL"
                             />
                         </div>
 

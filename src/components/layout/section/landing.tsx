@@ -33,20 +33,34 @@ export const LandingSection = () => {
                                 Web Developer based on Karawang, Indonesia.
                             </h1>
                         </div>
-                        <Link href="/linktree" className="text-xl text-start tracking-wider bg-black text-white font-medium px-4 py-2 rounded-full flex flex-row gap-2 items-center">
-                            Contact Me <ArrowRight weight="bold"/>
+                        <Link
+                            href="/linktree"
+                            className="text-xl text-start tracking-wider bg-black text-white font-medium px-4 py-2 rounded-full flex flex-row gap-2 items-center"
+                        >
+                            Contact Me <ArrowRight weight="bold" />
                         </Link>
                     </div>
-                    <div className="portrait:flex-none flex-1 w-auto flex m-4">
+                    <Link
+                        href=""
+                        className="portrait:flex-none flex-1 w-auto flex justify-center m-4 relative overflow-hidden rounded-2xl"
+                    >
                         <Image
                             src="/assets/naya.png"
-                            alt="Nadiem Anwar Makarim"
+                            alt="Naya Emiko - Codename: Melt"
                             width={500}
                             height={500}
                             className=" aspect-square object-contain rounded-2xl h-full w-auto bg-[#fdd1b9]"
                             unoptimized
                         />
-                    </div>
+                        <p className="bg-[#fdd1b9] absolute text-black font-mono bottom-0 p-2 border-t-2 border-black">
+                            <span className="bg-black px-1 text-white">
+                                Naya Emiko
+                            </span>{" "}
+                            from Codename: Melt
+                            <br></br>
+                            drawn by @shie_angeli
+                        </p>
+                    </Link>
                 </div>
             </div>
             {/* <div className="flex flex-col max-w-screen-lg w-full h-full bg-red-500 m-auto">

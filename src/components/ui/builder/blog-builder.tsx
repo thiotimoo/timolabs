@@ -1,31 +1,28 @@
-"use client"
-import { BlogPostProps, IBlogBuilder } from "@/types/blogs";
+import { BlogPostProps, BlogType, IBlogBuilder } from "@/types/blogs";
 import React, { useEffect, useState } from "react";
 import { Article, MainContent } from "@/components/layout";
 import { MarkdownBuilder } from "../markdown";
-import { fetchBlogBySlug } from "@/lib/blogs";
 import { IBlog } from "@/model/Blog";
+import { fetchBlogFromSlug } from "@/lib/blog-libs";
 
+const getBlog = async (blogType: BlogType, slug: string) => {
+    const data = await fetchBlogFromSlug(blogType, slug);
+    return data;
+};
 
-export const BlogBuilder: React.FC<IBlogBuilder> = ({
+export const BlogBuilder: React.FC<IBlogBuilder> = async ({
     blogType,
     slug,
 }) => {
-    const [blogData, setBlogData] = useState<any>({})
-    const fetchData = async () => {
-        setBlogData(await fetchBlogBySlug(blogType, slug));
-    };
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const blog = await getBlog(blogType, slug);
 
     return (
-        blogData && (
+        blog ? (
             <MainContent>
-                <Article blogData={blogData}>
-                    <MarkdownBuilder markdownBody={blogData?.bodyContent} />
+                <Article blogData={blog}>
+                    <MarkdownBuilder markdownBody={blog?.bodyContent} />
                 </Article>
             </MainContent>
-        )
+        ) : <MainContent>404 Not Found</MainContent>
     );
 };

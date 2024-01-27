@@ -8,7 +8,7 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <Next13ProgressBar
                 height="2px"
-                color="#FFFFFF"
+                color="#ff69b4"
                 options={{ showSpinner: false }}
                 showOnShallow
             />

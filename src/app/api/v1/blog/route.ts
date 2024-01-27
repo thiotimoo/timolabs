@@ -21,6 +21,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             slug,
             visibility,
             tags,
+            metadata
         } = await req.json();
 
         const blog = new Blog({
@@ -35,6 +36,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             slug: slug,
             visibility,
             tags: tags,
+            metadata: metadata
         });
 
         let doc;

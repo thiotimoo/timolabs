@@ -18,10 +18,10 @@ export const StyledButton: React.FC<IStyledButtonProps> = ({
     let baseClassName;
     switch (style) {
         case "primary":
-            baseClassName = "bg-adaptive-invert text-adaptive-invert";
+            baseClassName = "bg-adaptive-invert text-adaptive-invert border-back dark:border-back-dark border  hover:underline";
             break;
         case "secondary":
-            baseClassName = "bg-surface-adaptive text-surface-adaptive";
+            baseClassName = "bg-surface-adaptive text-surface-adaptive border-adaptive border border hover:underline";
             break;
     }
 

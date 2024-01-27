@@ -64,7 +64,7 @@ body {
 }
 
 .text-link {
-    @apply text-green-500 dark:text-green-400 hover:bg-green-500 hover:dark:bg-green-400 hover:text-black rounded-sm underline;
+    @apply text-primary hover:bg-yellow-950 hover:dark:bg-yellow-200 hover:text-white hover:dark:text-black rounded-sm underline;
 }
 
 .divide-adaptive {
@@ -73,6 +73,10 @@ body {
 
 .border-adaptive {
     @apply border-fore dark:border-fore-dark border-opacity-10 dark:border-opacity-10;
+}
+
+.ring-adaptive {
+    @apply ring-fore dark:ring-fore-dark;
 }
 
 .bg-surface-adaptive {
