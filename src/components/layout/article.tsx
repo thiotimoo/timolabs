@@ -29,7 +29,7 @@ export const Article: React.FC<IBlogLayoutProps> = ({ children, blogData }) => {
                     height={720}
                 />
             )}
-            <header className="w-full flex flex-col md:flex-row items-center gap-1">
+            <header className="w-full flex flex-col md:flex-row justify-center md:items-center items-start gap-6">
                 <div className="w-full flex-1 flex flex-col">
                     {blogData.createdAt && (
                         <time
@@ -45,6 +45,7 @@ export const Article: React.FC<IBlogLayoutProps> = ({ children, blogData }) => {
                         {blogData.title}
                     </h1>
                 </div>
+                <div className="flex-row-reverse md:flex-row flex gap-2 justify-start items-start ">
                 {blogData.metadata?.repoUrl && (
                     <StyledButton
                         style="secondary"
@@ -78,6 +79,7 @@ export const Article: React.FC<IBlogLayoutProps> = ({ children, blogData }) => {
                         Download
                     </StyledButton>
                 )}
+                </div>
             </header>
             {children}
         </motion.article>
