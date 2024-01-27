@@ -29,7 +29,7 @@ export const Article: React.FC<IBlogLayoutProps> = ({ children, blogData }) => {
                     height={720}
                 />
             )}
-            <header className="w-full flex flex-row items-center gap-1">
+            <header className="w-full flex flex-col md:flex-row items-center gap-1">
                 <div className="w-full flex-1 flex flex-col">
                     {blogData.createdAt && (
                         <time

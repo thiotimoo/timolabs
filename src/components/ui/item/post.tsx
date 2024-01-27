@@ -16,13 +16,13 @@ export const ItemPost = (blog: IBlog) => {
     } = blog;
     return (
         <Link
-            className="flex flex-wrap items-start overflow-clip gap-4 py-4 group"
+            className="flex flex-row items-start overflow-clip gap-4 py-4 group"
             href={`/${blogType}/${slug}`}
         >
             {imageUrl && (
                 <Image
                     unoptimized //remove to optimize
-                    className=" aspect-video object-cover w-full md:w-64 rounded-xl border-2 border-transparent group-hover:border-fore group-hover:dark:border-fore-dark"
+                    className="aspect-square md:aspect-video object-cover w-1/5 md:w-64 rounded-xl border-2 border-transparent group-hover:border-fore group-hover:dark:border-fore-dark"
                     alt={title}
                     src={imageUrl}
                     width={400}
@@ -36,7 +36,7 @@ export const ItemPost = (blog: IBlog) => {
                     </h3>
                     <h3 className="text-xl font-black">{title}</h3>
                     {description && (
-                        <h3 className="text-lg font-normal text-adaptive line-clamp-2">
+                        <h3 className="text-base font-normal text-adaptive line-clamp-2">
                             {description}
                         </h3>
                     )}
