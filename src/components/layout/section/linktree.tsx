@@ -52,7 +52,6 @@ export const LinkTreeSection = () => {
                     name="Discord Server"
                 />
             </div>
-            <ThemeSwitch/>
         </Section>
     );
 };
